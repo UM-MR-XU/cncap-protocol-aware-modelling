@@ -3,6 +3,8 @@
 Code and data for the paper *"Protocol-Aware Modelling of Evolving Assessment
 Systems: A Three-Layer Transferable Decomposition"* (IEEE Access, under review).
 
+Archived release: <https://doi.org/10.5281/zenodo.22014824>
+
 Standardised assessment protocols are revised on a cycle, and each revision
 changes **what is measured**, not merely how strictly it is judged. A model
 trained on earlier revisions has no output for an indicator a later revision
@@ -28,7 +30,7 @@ included in `data/`.
 `run_local.py` runs every step in the correct order, including the two
 long-running experiments behind Tables 7 and 8.
 
-Expected runtime: 3�? minutes on a normal laptop with LightGBM installed;
+Expected runtime: under a minute on a workstation with LightGBM installed;
 substantially longer without it, because the fallback is the self-contained
 pure-NumPy booster in `src/gbdt.py`.
 
@@ -43,18 +45,18 @@ Every number in the paper maps to a script and an output file.
 
 | Paper location | Command | Output |
 |---|---|---|
-| Table 3 �?rule layer recovery, 99.6% | `python src/rule_layer.py` | `outputs/rule_layer_validation.json` |
-| Sec. V-A �?discriminability bound (11 of 35) | derived from `config/rule_config.json` `_provenance` | �?|
-| Table 4 �?2×2 factorial counts | `python src/sigma_analysis.py` | `outputs/sigma_analysis.json` |
-| Table 5 �?skill scores, both implementations | `python run_local.py` | `outputs/baseline_forward_transfer__npy.csv`, `__lgb.csv` |
-| Table 6 �?controlled contrasts, 5.8× / 6.6× | same as Table 5 | same |
-| Sec. V-C �?design rules, 17/31/40 | `python src/design_rules.py` | `outputs/design_rules_items.csv`, `design_rules_report.md` |
-| Sec. V-D �?monotonicity ablation (negative result) | `python src/ablation_e3.py` | `outputs/ablation_e3__npy.csv` |
-| Sec. V-D �?the five monotonicity checks | `python src/monotonicity_check.py` | `outputs/monotonicity_check.json` |
-| Table 7 �?oracle / zero dual mode | `python src/oracle_zero.py` | `outputs/oracle_zero.csv`, `oracle_zero_star.csv` |
-| Sec. V-E �?observability strata | same as Table 7 | `outputs/e4_observability.csv` |
-| Table 8 �?configuration necessity, both weightings | `python src/e5_min_config.py` | `outputs/e5_min_config.csv` |
-| Sec. IV �?dataset composition, invariants | `python src/validators.py` | `outputs/validation_report.json` |
+| Table 3, rule layer recovery 99.6% | `python src/rule_layer.py` | `outputs/rule_layer_validation.json` |
+| Sec. V-A, discriminability bound (11 of 35) | read from `config/rule_config.json` `_provenance` | n/a |
+| Table 4, 2x2 factorial counts | `python src/sigma_analysis.py` | `outputs/sigma_analysis.json` |
+| Table 5, skill scores under both implementations | `python run_local.py` | `outputs/baseline_forward_transfer__npy.csv`, `__lgb.csv` |
+| Table 6, controlled contrasts 5.8x / 6.6x | same as Table 5 | same |
+| Sec. V-C, design rules 17/31/40 | `python src/design_rules.py` | `outputs/design_rules_items.csv`, `design_rules_report.md` |
+| Sec. V-D, monotonicity ablation (negative result) | `python src/ablation_e3.py` | `outputs/ablation_e3__npy.csv` |
+| Sec. V-D, the five monotonicity checks | `python src/monotonicity_check.py` | `outputs/monotonicity_check.json` |
+| Table 7, oracle / zero dual mode | `python src/oracle_zero.py` | `outputs/oracle_zero.csv`, `oracle_zero_star.csv` |
+| Sec. V-E, observability strata | same as Table 7 | `outputs/e4_observability.csv` |
+| Table 8, configuration necessity under both weightings | `python src/e5_min_config.py` | `outputs/e5_min_config.csv` |
+| Sec. IV, dataset composition and invariants | `python src/validators.py` | `outputs/validation_report.json` |
 
 A snapshot of all of these is committed under `outputs/`, so the reported
 numbers can be checked without running anything.
@@ -66,29 +68,29 @@ committed under both backends:
 
 | File | Backend |
 |---|---|
-| `*.csv` (no suffix) | self-contained booster �?**these are the values in the paper's tables** |
+| `*.csv` (no suffix) | self-contained booster. **These are the values in the paper's tables.** |
 | `*__npy.csv` | identical copy, explicitly labelled |
 | `*__lgb.csv` | LightGBM |
 
 This applies to `baseline_group_cv`, `baseline_forward_transfer`, `ablation_e3`
 and `e5_min_config`. Running with LightGBM installed will therefore not
-reproduce the unsuffixed files byte-for-byte; compare against `*__lgb.csv`
+reproduce the unsuffixed files byte for byte; compare against `*__lgb.csv`
 instead. The differences are small but real, and Section V of the paper reports
-where they matter �?most notably that the frontal-airbag self-check returns
-exactly 0.0000 only under the self-contained booster.
+where they matter. Most notably, the frontal-airbag self-check returns exactly
+0.0000 only under the self-contained booster; LightGBM returns 0.0026.
 
 ---
 
 ## 3. Two tiers of reproduction
 
-**Tier A �?default.** Everything above runs from `data/`, which contains the
+**Tier A, the default.** Everything above runs from `data/`, which contains the
 de-identified derivative dataset. No configuration required.
 
-**Tier B �?optional.** `build_long_table.py`, `validate_aggregation.py` and
+**Tier B, optional.** `build_long_table.py`, `validate_aggregation.py` and
 `patch_sigma.py` rebuild the dataset from the raw assessment records. Those
 records are published by the protocol authority but are **not redistributed
-here** (see §5). To enable this tier, point an environment variable at a local
-copy:
+here** (see section 5). To enable this tier, point an environment variable at a
+local copy:
 
 ```bash
 export CNCAP_RAW_DIR=/path/to/C-NCAP_Test_Data     # macOS / Linux
@@ -103,32 +105,32 @@ stack trace.
 ## 4. Repository layout
 
 ```
-├── run_local.py              one-command entry point
-├── requirements.txt
-├── src/                      15 scripts, all independently runnable
-�?  ├── paths.py              all paths in one place; repo-relative
-�?  ├── gbdt.py               self-contained gradient booster (pure NumPy)
-�?  ├── rule_layer.py         protocol rules -> star rating
-�?  ├── dataset.py            design matrix assembly + leakage self-check
-�?  ├── cv_protocol.py        grouped CV and rolling-origin folds
-�?  ├── baselines.py          B0 / B1 / B2
-�?  ├── design_rules.py       deterministic design-rule mining
-�?  ├── ablation_e3.py        monotonicity ablation
-�?  ├── oracle_zero.py        oracle/zero dual mode + observability strata
-�?  └── e5_min_config.py      per-item counterfactual ablation
-├── config/
-�?  ├── rule_config.json      every rule parameter, with `_provenance`
-�?  ├── feature_groups.json   which features may enter the model, and why
-�?  └── supplement_v6_side_mdb_row2.json
-├── ontology/
-�?  └── item_ontology_v1.json 62 indicator identifiers + full sigma table
-├── data/                     de-identified derivative, see §5
-�?  ├── train_long.csv.gz     13,060 rows
-�?  ├── vehicle_features.csv
-�?  ├── test_level_adjustments.csv
-�?  ├── official_outcomes.csv official star and module rates per variant
-�?  └── DATA_DICTIONARY.md
-└── outputs/                  committed snapshot of all reported results
+run_local.py              one-command entry point
+requirements.txt
+src/                      16 scripts, all independently runnable
+    paths.py              all paths in one place; repo-relative
+    gbdt.py               self-contained gradient booster (pure NumPy)
+    rule_layer.py         protocol rules -> star rating
+    dataset.py            design matrix assembly + leakage self-check
+    cv_protocol.py        grouped CV and rolling-origin folds
+    baselines.py          B0 / B1 / B2
+    design_rules.py       deterministic design-rule mining
+    ablation_e3.py        monotonicity ablation
+    oracle_zero.py        oracle/zero dual mode + observability strata
+    e5_min_config.py      per-item counterfactual ablation
+config/
+    rule_config.json      every rule parameter, with _provenance
+    feature_groups.json   which features may enter the model, and why
+    supplement_v6_side_mdb_row2.json
+ontology/
+    item_ontology_v1.json 62 indicator identifiers + full sigma table
+data/                     de-identified derivative, see section 5
+    train_long.csv.gz     13,060 rows
+    vehicle_features.csv
+    test_level_adjustments.csv
+    official_outcomes.csv official star and module rates per variant
+    DATA_DICTIONARY.md
+outputs/                  committed snapshot of all reported results
 ```
 
 Two files are worth reading even if you never run the code:
@@ -154,7 +156,7 @@ This repository ships a **structured derivative**, not the raw records:
   each record is identified only by an opaque `variant_id`
 - the derivative is the long-format indicator table plus the feature, adjustment
   and official-outcome tables that the analysis consumes
-- the raw scrape and the protocol PDFs are not redistributed, because their
+- the raw scrape and the protocol documents are not redistributed, because their
   licensing is not ours to grant
 
 The derivative is sufficient to reproduce every result in the paper.
@@ -191,6 +193,10 @@ is not surprised by them.
 Developed and tested on Python 3.11. `src/gbdt.py` is a self-contained
 implementation requiring only NumPy, so the cross-implementation check runs even
 where LightGBM is unavailable.
+
+A note for Windows users editing these files: `Set-Content` and `>` in
+PowerShell write in the system code page, which corrupts UTF-8. Use
+`Set-Content -Encoding utf8` or an editor that preserves the encoding.
 
 ---
 

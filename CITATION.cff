@@ -1,6 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software or data, please cite the accompanying paper."
 title: "Protocol-Aware Modelling of Evolving Assessment Systems: code and derivative data"
+type: software
 authors:
   - family-names: Xu
     given-names: Huayong
@@ -11,7 +12,18 @@ authors:
   - family-names: Siow
     given-names: Pei Yi
 license: MIT
+version: "1.0"
+date-released: "2026-08-19"
 repository-code: "https://github.com/UM-MR-XU/cncap-protocol-aware-modelling"
+# DOI of the archived software release. This belongs at the top level, not
+# under preferred-citation: preferred-citation describes the PAPER, and giving
+# it a Zenodo software DOI would make "Cite this repository" emit an IEEE
+# Access article carrying a software DOI.
+doi: "10.5281/zenodo.22014824"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22014824"
+    description: "Archived release v1.0 (Zenodo)"
 preferred-citation:
   type: article
   title: "Protocol-Aware Modelling of Evolving Assessment Systems: A Three-Layer Transferable Decomposition"
@@ -26,4 +38,5 @@ preferred-citation:
       given-names: Pei Yi
   journal: "IEEE Access"
   year: 2026
-  doi: "10.5281/zenodo.22014824"
+  # The article DOI is assigned by IEEE on acceptance. Add it here then, and
+  # do not substitute the Zenodo DOI in the meantime.
