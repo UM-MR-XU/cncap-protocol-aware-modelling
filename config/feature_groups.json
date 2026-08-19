@@ -1,0 +1,60 @@
+{
+  "_doc": "特征分组声明（D-047）。判据：该变量是否影响碰撞发生后的假人伤害值。主动安全的作用在碰撞之前，一旦进入本研究建模的碰撞工况，其取值与假人伤害无因果通路，故不入模。建模代码必须从本文件读取入模列，禁止在代码中硬编码特征名单。",
+  "_version": "2026-08-14",
+
+  "vehicle_param": {
+    "modeling": true,
+    "note": "A 级整车参数。质量与尺寸通过碰撞能量与变形空间影响伤害值，因果链成立。",
+    "numeric": ["length_mm", "width_mm", "height_mm", "curb_weight_kg", "gross_weight_kg", "displacement_ml", "price_10k"],
+    "categorical": ["vehicle_class_raw"],
+    "coverage_note": "gross_weight_kg 在 V6/V7 缺失（源 CSV 无此列）；displacement_ml 在 V6/V7 因新能源车而大量合法缺失，缺失本身是动力形式的有噪代理（F-32，一致率 83%）。"
+  },
+
+  "passive_safety": {
+    "modeling": true,
+    "note": "B 级被动安全配置。直接决定碰撞中的乘员约束效果。",
+    "binary": ["cfg_front_airbag", "cfg_side_airbag", "cfg_curtain_airbag", "cfg_knee_airbag", "cfg_center_airbag", "cfg_belt_pretensioner", "cfg_belt_loadlimiter", "cfg_belt_reminder_driver", "cfg_belt_reminder_passenger", "cfg_isofix", "cfg_seat_monitor"],
+    "ordinal": ["belt_grade_row1", "belt_grade_row2"],
+    "categorical": ["headrest_type"],
+    "coverage_note": "cfg_belt_reminder_passenger 在 V6/V7 缺失（近期数据源已并入座位矩阵）；cfg_knee_airbag / cfg_center_airbag 在 V1/V2 无来源。"
+  },
+
+  "component_proxy": {
+    "modeling": true,
+    "note": "部件级设计族系代理（D-048）。供应商已规范化到品牌级，基数 249→7。仅 V3–V5 可得，V6 起数据源改为座位勾选矩阵后完全消失（F-34）。",
+    "categorical": ["belt_supplier", "airbag_supplier", "side_airbag_supplier", "seat_supplier"],
+    "excluded_from_default": true,
+    "excluded_reason": "仅 V3–V5 可得，前向迁移到 V6/V7 时全缺。默认特征集不含，仅在 F-27/F-34 的部件级输入子实验中启用，以免主实验的迁移结果被特征可得性差异混淆。"
+  },
+
+  "active_safety": {
+    "modeling": false,
+    "note": "主动安全配置。作用发生在碰撞之前，与碰撞后的假人伤害值无因果通路（D-047）。保留在特征表中供博士总课题的主动安全子课题复用，但不得进入本研究的乘员保护模型。",
+    "excluded": ["cfg_aeb_c2c", "cfg_aeb_ped", "cfg_aeb_tw", "cfg_lka", "cfg_ldw", "cfg_elk", "cfg_dms", "cfg_tsr", "cfg_isls", "cfg_dow", "cfg_rcta", "cfg_bsd", "cfg_sas", "cfg_adb", "cfg_esc"]
+  },
+
+  "leakage_risk": {
+    "modeling": false,
+    "note": "必须排除——以配置预测同名评价细项的得分构成标签泄漏。",
+    "excluded": ["cfg_ecall"],
+    "excluded_detail": {
+      "cfg_ecall": "V7 规程中 ecall 是乘员保护模块的评价细项（见 rule_layer.occupant_score 的 V7 分支），配置→得分为恒等映射。"
+    }
+  },
+
+  "out_of_scope": {
+    "modeling": false,
+    "note": "属行人保护（VRU）模块，非本研究范围。",
+    "excluded": ["cfg_active_bonnet"]
+  },
+
+  "identifier_or_meta": {
+    "modeling": false,
+    "note": "标识与元数据。version 与 test_year 不作为普通特征——前向迁移评估中它们与折划分共线，若入模会使模型直接记忆版本而非学习结构。",
+    "excluded": ["variant_id", "version", "test_year", "feature_source", "seat_model"]
+  },
+
+  "config_gated_caveat": {
+    "note": "F-16 定义的 config_gated 类细项（占 1.2%）由配置确定性决定，其预测精度是平凡的，须在结果表中单列，不计入模型贡献。"
+  }
+}

@@ -1,0 +1,8 @@
+﻿工况,维度,取值序列,单调不减,反例
+frontal_frb100,speed_kmh,V1:50 → V2:50 → V3:50 → V4:50 → V5:50 → V6:50 → V7:55,✔,—
+frontal_odb40,speed_kmh,V1:56 → V2:56 → V3:64 → V4:64 → V5:64,✔,—
+frontal_mpdb50,speed_kmh,V6:50 → V7:50,✔,—
+side_mdb,speed_kmh,V1:50 → V2:50 → V3:50 → V4:50 → V5:50 → V6:50 → V7:60,✔,—
+side_mdb,row1_dummy,V4→V5: EuroSID-II ⇒ WorldSID-50th,—（假人不赋全序）,见左
+side_pole,speed_kmh,V6:32 → V7:32,✔,—
+whiplash,delta_v_kmh,V3:15.65 → V4:15.65 → V5:20 → V6:20 → V7:20,✔,—

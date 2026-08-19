@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "collected": "2026-08-14",
+  "source": "C-NCAP 官方评价结果详情页（服务端渲染，逐页人工核对）",
+  "scope": "V6（2021 版规程）可变形移动壁障侧面碰撞试验的第二排假人得分",
+  "background": "原采集遗漏该模块的第二排数据，18 台中仅 7 台有记录。本次按 detail_url 逐页补抓，11 台缺口全部处理。",
+  "note_on_max": "第二排四部位满分均为 1.0，与 2018 版规程「第二排女性假人最高 4 分，评分部位为头部、胸部、腹部和骨盆，每个部位最高 1 分」一致；前排 16 + 后排 4 = 20，与官方分母吻合。",
+
+  "legitimate_absence": [
+    {
+      "variant_id": "34",
+      "reason": "皮卡，按单排座车评价（2021 版规程：皮卡车按照单排座车进行测试评价）",
+      "evidence": "该车正面100%、MPDB、侧碰的官方分母分别为 16/16/16（非 24/24/20），鞭打仅前排颈部得分（分母 5，非 7），且无儿童保护静态评价",
+      "action": "不补数据。守恒检验中该车的 side_mdb 分母应取 16 而非 20"
+    }
+  ],
+
+  "supplements": [
+    { "variant_id": "21", "test_score": "20.000/20", "items": [
+      { "region": "head", "max": 1, "score": 1.000 }, { "region": "chest", "max": 1, "score": 1.000 },
+      { "region": "abdomen", "max": 1, "score": 1.000 }, { "region": "pelvis", "max": 1, "score": 1.000 } ] },
+
+    { "variant_id": "23", "test_score": "20.000/20", "items": [
+      { "region": "head", "max": 1, "score": 1.000 }, { "region": "chest", "max": 1, "score": 1.000 },
+      { "region": "abdomen", "max": 1, "score": 1.000 }, { "region": "pelvis", "max": 1, "score": 1.000 } ] },
+
+    { "variant_id": "26", "test_score": "17.000/20",
+      "test_level_note": "气帘展开过程和安全带解锁力不满足要求，累计扣 3 分",
+      "items": [
+      { "region": "head", "max": 1, "score": 0.000 }, { "region": "chest", "max": 1, "score": 1.000 },
+      { "region": "abdomen", "max": 1, "score": 1.000 }, { "region": "pelvis", "max": 1, "score": 1.000 } ] },
+
+    { "variant_id": "30", "test_score": "20.000/20", "items": [
+      { "region": "head", "max": 1, "score": 1.000 }, { "region": "chest", "max": 1, "score": 1.000 },
+      { "region": "abdomen", "max": 1, "score": 1.000 }, { "region": "pelvis", "max": 1, "score": 1.000 } ] },
+
+    { "variant_id": "31", "test_score": "19.000/20",
+      "test_level_note": "气帘展开过程有硬质飞溅物，扣 1 分",
+      "items": [
+      { "region": "head", "max": 1, "score": 1.000 }, { "region": "chest", "max": 1, "score": 1.000 },
+      { "region": "abdomen", "max": 1, "score": 1.000 }, { "region": "pelvis", "max": 1, "score": 1.000 } ] },
+
+    { "variant_id": "42", "test_score": "20.000/20", "items": [
+      { "region": "head", "max": 1, "score": 1.000 }, { "region": "chest", "max": 1, "score": 1.000 },
+      { "region": "abdomen", "max": 1, "score": 1.000 }, { "region": "pelvis", "max": 1, "score": 1.000 } ] },
+
+    { "variant_id": "46", "test_score": "20.000/20", "items": [
+      { "region": "head", "max": 1, "score": 1.000 }, { "region": "chest", "max": 1, "score": 1.000 },
+      { "region": "abdomen", "max": 1, "score": 1.000 }, { "region": "pelvis", "max": 1, "score": 1.000 } ] },
+
+    { "variant_id": "50", "test_score": "20.000/20", "items": [
+      { "region": "head", "max": 1, "score": 1.000 }, { "region": "chest", "max": 1, "score": 1.000 },
+      { "region": "abdomen", "max": 1, "score": 1.000 }, { "region": "pelvis", "max": 1, "score": 1.000 } ] },
+
+    { "variant_id": "54", "test_score": "20.000/20", "items": [
+      { "region": "head", "max": 1, "score": 1.000 }, { "region": "chest", "max": 1, "score": 1.000 },
+      { "region": "abdomen", "max": 1, "score": 1.000 }, { "region": "pelvis", "max": 1, "score": 1.000 } ] },
+
+    { "variant_id": "55", "test_score": "20.000/20", "items": [
+      { "region": "head", "max": 1, "score": 1.000 }, { "region": "chest", "max": 1, "score": 1.000 },
+      { "region": "abdomen", "max": 1, "score": 1.000 }, { "region": "pelvis", "max": 1, "score": 1.000 } ] }
+  ],
+
+  "incidental_findings": [
+    {
+      "id": "test_level_penalty",
+      "finding": "存在试验项级罚分，不体现在任何细项得分中。例：variant 26 细项之和 19（前排16+后排3）而官方试验得分 17；variant 31 细项之和 20 而官方 19。",
+      "implication": "规则层从细项汇总到试验项得分时，需引入试验项级罚分项，否则模块得分会被高估。该罚分在页面上以文字说明形式给出，不在结构化表格中。",
+      "action": "W2 规则层实现时须处理；本轮先记录"
+    },
+    {
+      "id": "child_static_no_max_column",
+      "finding": "儿童乘员保护静态评价在官方页面上只有「试验得分」一列，没有「满分」列。",
+      "implication": "证实 D-030：数据集中该项的 max 字段系抓取时以得分填充，非真实满分。",
+      "action": "W3 改用试验项级得分（分母 3）重建"
+    },
+    {
+      "id": "bonus_penalty_detail",
+      "finding": "V6 页面明确列出加分项（侧面气帘保压、E-CALL）与罚分项（安全带未系提醒）的逐项得分，取值为 2.0/0.0 与 0.0/-0.5。",
+      "implication": "可用于规则层单元测试：给定配置应能精确算出加罚分。",
+      "action": "可选补抓，当前数据集已有加分项汇总"
+    }
+  ]
+}

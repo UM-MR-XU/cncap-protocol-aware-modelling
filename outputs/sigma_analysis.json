@@ -1,0 +1,260 @@
+{
+ "adjacent": [
+  {
+   "transition": "V1→V2",
+   "共有 item": 13,
+   "incomparable": 0,
+   "comparable": 13,
+   "变更维": "—"
+  },
+  {
+   "transition": "V2→V3",
+   "共有 item": 13,
+   "incomparable": 4,
+   "comparable": 9,
+   "变更维": "speed(4)"
+  },
+  {
+   "transition": "V3→V4",
+   "共有 item": 27,
+   "incomparable": 0,
+   "comparable": 27,
+   "变更维": "—"
+  },
+  {
+   "transition": "V4→V5",
+   "共有 item": 28,
+   "incomparable": 8,
+   "comparable": 20,
+   "变更维": "dummy(4)，speed(4)"
+  },
+  {
+   "transition": "V5→V6",
+   "共有 item": 17,
+   "incomparable": 0,
+   "comparable": 17,
+   "变更维": "—"
+  },
+  {
+   "transition": "V6→V7",
+   "共有 item": 32,
+   "incomparable": 19,
+   "comparable": 13,
+   "变更维": "barrier(8)，speed(19)"
+  }
+ ],
+ "folds": [
+  {
+   "fold": "F1",
+   "train": "V1+V2",
+   "test": "V3",
+   "共有 item": 13,
+   "comparable": 9,
+   "incomparable": 4,
+   "incomparable 率": 0.308,
+   "变更维": "speed(4)"
+  },
+  {
+   "fold": "F2",
+   "train": "V1+V2+V3",
+   "test": "V4",
+   "共有 item": 27,
+   "comparable": 27,
+   "incomparable": 0,
+   "incomparable 率": 0.0,
+   "变更维": "—"
+  },
+  {
+   "fold": "F3",
+   "train": "V1+V2+V3+V4",
+   "test": "V5",
+   "共有 item": 28,
+   "comparable": 20,
+   "incomparable": 8,
+   "incomparable 率": 0.286,
+   "变更维": "dummy(4)，speed(4)"
+  },
+  {
+   "fold": "F4",
+   "train": "V1+V2+V3+V4+V5",
+   "test": "V6",
+   "共有 item": 17,
+   "comparable": 17,
+   "incomparable": 0,
+   "incomparable 率": 0.0,
+   "变更维": "—"
+  },
+  {
+   "fold": "F5",
+   "train": "V1+V2+V3+V4+V5+V6",
+   "test": "V7",
+   "共有 item": 32,
+   "comparable": 13,
+   "incomparable": 19,
+   "incomparable 率": 0.594,
+   "变更维": "barrier(8)，speed(19)"
+  }
+ ],
+ "f19_verification": {
+  "F2": {
+   "共有 item": 27,
+   "incomparable": 0,
+   "变更维": "—",
+   "σ 全部未变": true
+  },
+  "F3": {
+   "共有 item": 28,
+   "incomparable": 8,
+   "变更维": "dummy(4)，speed(4)",
+   "σ 全部未变": false
+  }
+ },
+ "f19_verdict": "✔ F-19 成立",
+ "fold_detail": {
+  "F1": {
+   "comparable": [
+    "occ.frontal_frb100.row1.chest",
+    "occ.frontal_frb100.row1.head",
+    "occ.frontal_frb100.row1.leg",
+    "occ.frontal_frb100.row1.neck",
+    "occ.frontal_frb100.row1.thigh",
+    "occ.side_mdb.row1.abdomen",
+    "occ.side_mdb.row1.chest",
+    "occ.side_mdb.row1.head",
+    "occ.side_mdb.row1.pelvis"
+   ],
+   "incomparable": [
+    "occ.frontal_odb40.row1.chest",
+    "occ.frontal_odb40.row1.headneck",
+    "occ.frontal_odb40.row1.leg",
+    "occ.frontal_odb40.row1.thigh"
+   ]
+  },
+  "F2": {
+   "comparable": [
+    "occ.bonus.二排乘员安全带提醒装置",
+    "occ.bonus.侧面安全气囊及气帘",
+    "occ.bonus.前排乘员安全带提醒装置",
+    "occ.frontal_frb100.row1.chest",
+    "occ.frontal_frb100.row1.head",
+    "occ.frontal_frb100.row1.leg",
+    "occ.frontal_frb100.row1.neck",
+    "occ.frontal_frb100.row1.thigh",
+    "occ.frontal_frb100.row2_adult.chest",
+    "occ.frontal_frb100.row2_adult.head",
+    "occ.frontal_frb100.row2_adult.neck",
+    "occ.frontal_odb40.row1.chest",
+    "occ.frontal_odb40.row1.headneck",
+    "occ.frontal_odb40.row1.leg",
+    "occ.frontal_odb40.row1.thigh",
+    "occ.frontal_odb40.row2_adult.chest",
+    "occ.frontal_odb40.row2_adult.headneck",
+    "occ.side_mdb.row1.abdomen",
+    "occ.side_mdb.row1.chest",
+    "occ.side_mdb.row1.head",
+    "occ.side_mdb.row1.pelvis",
+    "occ.side_mdb.row2_adult.head",
+    "occ.side_mdb.row2_adult.pelvis",
+    "occ.whiplash.row1.lowerneck",
+    "occ.whiplash.row1.neckscore",
+    "occ.whiplash.row1.nic",
+    "occ.whiplash.row1.upperneck"
+   ],
+   "incomparable": []
+  },
+  "F3": {
+   "comparable": [
+    "occ.bonus.二排乘员安全带提醒装置",
+    "occ.bonus.侧面安全气囊及气帘",
+    "occ.bonus.前排乘员安全带提醒装置",
+    "occ.frontal_frb100.row1.chest",
+    "occ.frontal_frb100.row1.head",
+    "occ.frontal_frb100.row1.leg",
+    "occ.frontal_frb100.row1.neck",
+    "occ.frontal_frb100.row1.thigh",
+    "occ.frontal_frb100.row2_adult.chest",
+    "occ.frontal_frb100.row2_adult.head",
+    "occ.frontal_frb100.row2_adult.headneck",
+    "occ.frontal_frb100.row2_adult.neck",
+    "occ.frontal_odb40.row1.chest",
+    "occ.frontal_odb40.row1.headneck",
+    "occ.frontal_odb40.row1.leg",
+    "occ.frontal_odb40.row1.thigh",
+    "occ.frontal_odb40.row2_adult.chest",
+    "occ.frontal_odb40.row2_adult.headneck",
+    "occ.side_mdb.row2_adult.head",
+    "occ.side_mdb.row2_adult.pelvis"
+   ],
+   "incomparable": [
+    "occ.side_mdb.row1.abdomen",
+    "occ.side_mdb.row1.chest",
+    "occ.side_mdb.row1.head",
+    "occ.side_mdb.row1.pelvis",
+    "occ.whiplash.row1.lowerneck",
+    "occ.whiplash.row1.neckscore",
+    "occ.whiplash.row1.nic",
+    "occ.whiplash.row1.upperneck"
+   ]
+  },
+  "F4": {
+   "comparable": [
+    "occ.frontal_frb100.row1.chest",
+    "occ.frontal_frb100.row1.head",
+    "occ.frontal_frb100.row1.leg",
+    "occ.frontal_frb100.row1.neck",
+    "occ.frontal_frb100.row1.thigh",
+    "occ.frontal_frb100.row2_adult.chest",
+    "occ.frontal_frb100.row2_adult.head",
+    "occ.frontal_frb100.row2_adult.neck",
+    "occ.side_mdb.row1.abdomen",
+    "occ.side_mdb.row1.chest",
+    "occ.side_mdb.row1.head",
+    "occ.side_mdb.row1.pelvis",
+    "occ.side_mdb.row2_adult.abdomen",
+    "occ.side_mdb.row2_adult.chest",
+    "occ.side_mdb.row2_adult.head",
+    "occ.side_mdb.row2_adult.pelvis",
+    "occ.whiplash.row1.neckscore"
+   ],
+   "incomparable": []
+  },
+  "F5": {
+   "comparable": [
+    "occ.child_static.crs_install",
+    "occ.child_static.vehicle_based",
+    "occ.frontal_mpdb50.row1.headneck",
+    "occ.frontal_mpdb50.row2_adult.headneck",
+    "occ.frontal_mpdb50.row2_child.chest",
+    "occ.frontal_mpdb50.row2_child.head",
+    "occ.frontal_mpdb50.row2_child.neck",
+    "occ.side_pole.row1.abdomen",
+    "occ.side_pole.row1.chest",
+    "occ.side_pole.row1.head",
+    "occ.side_pole.row1.pelvis",
+    "occ.whiplash.row1.neckscore",
+    "occ.whiplash.row2_adult.neckscore"
+   ],
+   "incomparable": [
+    "occ.frontal_frb100.row1.chest",
+    "occ.frontal_frb100.row1.head",
+    "occ.frontal_frb100.row1.leg",
+    "occ.frontal_frb100.row1.neck",
+    "occ.frontal_frb100.row1.thigh",
+    "occ.frontal_frb100.row2_adult.chest",
+    "occ.frontal_frb100.row2_adult.head",
+    "occ.frontal_frb100.row2_adult.neck",
+    "occ.frontal_frb100.row2_child.chest",
+    "occ.frontal_frb100.row2_child.head",
+    "occ.frontal_frb100.row2_child.neck",
+    "occ.side_mdb.row1.abdomen",
+    "occ.side_mdb.row1.chest",
+    "occ.side_mdb.row1.head",
+    "occ.side_mdb.row1.pelvis",
+    "occ.side_mdb.row2_adult.abdomen",
+    "occ.side_mdb.row2_adult.chest",
+    "occ.side_mdb.row2_adult.head",
+    "occ.side_mdb.row2_adult.pelvis"
+   ]
+  }
+ }
+}

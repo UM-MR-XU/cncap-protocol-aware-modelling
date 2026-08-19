@@ -1,0 +1,190 @@
+{
+ "generated": "auto",
+ "n_rows": 13060,
+ "n_vehicles": 570,
+ "rows_by_version": {
+  "V4": 2747,
+  "V3": 3219,
+  "V2": 1088,
+  "V1": 1144,
+  "V5": 2838,
+  "V6": 1478,
+  "V7": 546
+ },
+ "rows_by_role": {
+  "target": 11065,
+  "aggregation_source": 996,
+  "rule_unit_test": 996,
+  "penalty": 3
+ },
+ "dedup_removed": 11,
+ "intentionally_dropped": 3032,
+ "unmapped_rows": 0,
+ "bad_records_skipped": 1,
+ "max_outlier_dropped": 12,
+ "supplemented_rows": 40,
+ "max_outliers": [
+  {
+   "key": [
+    "V4",
+    "occ.side_mdb.row1.chest",
+    1.0,
+    4.0
+   ],
+   "n": 1
+  },
+  {
+   "key": [
+    "V4",
+    "occ.side_mdb.row1.pelvis",
+    1.0,
+    4.0
+   ],
+   "n": 1
+  },
+  {
+   "key": [
+    "V4",
+    "occ.side_mdb.row1.abdomen",
+    1.0,
+    4.0
+   ],
+   "n": 1
+  },
+  {
+   "key": [
+    "V4",
+    "occ.side_mdb.row1.head",
+    1.0,
+    4.0
+   ],
+   "n": 1
+  },
+  {
+   "key": [
+    "V4",
+    "occ.side_mdb.row2_adult.head",
+    4.0,
+    1.0
+   ],
+   "n": 1
+  },
+  {
+   "key": [
+    "V4",
+    "occ.side_mdb.row2_adult.pelvis",
+    4.0,
+    1.0
+   ],
+   "n": 1
+  },
+  {
+   "key": [
+    "V4",
+    "occ.frontal_odb40.row2_adult.abdomen_pen",
+    0.0,
+    0.5
+   ],
+   "n": 1
+  },
+  {
+   "key": [
+    "V2",
+    "occ.frontal_odb40.row1.chest",
+    2.0,
+    4.0
+   ],
+   "n": 1
+  },
+  {
+   "key": [
+    "V2",
+    "occ.frontal_odb40.row1.headneck",
+    2.0,
+    4.0
+   ],
+   "n": 1
+  },
+  {
+   "key": [
+    "V5",
+    "occ.frontal_frb100.row2_adult.headneck",
+    1.6,
+    2.0
+   ],
+   "n": 1
+  }
+ ],
+ "label_out_of_range": 0,
+ "test_level_items": 57,
+ "test_level_subitems_skipped": 114,
+ "adjustment_kinds": {
+  "none": 1969,
+  "penalty": 162,
+  "bonus": 24,
+  "override_zero": 2
+ },
+ "headrest_coverage": {
+  "None": 269,
+  "passive": 286,
+  "active": 16
+ },
+ "feature_extraction": {
+  "late_basic_joined": 67,
+  "late_matrix_parsed": 64,
+  "late_matrix_failed": [
+   "44",
+   "45",
+   "46"
+  ]
+ },
+ "feature_coverage": {
+  "airbag_supplier": 0.5762,
+  "belt_grade_row1": 0.5779,
+  "belt_grade_row2": 0.5744,
+  "belt_supplier": 0.5727,
+  "cfg_active_bonnet": 0.0893,
+  "cfg_adb": 0.0893,
+  "cfg_aeb_c2c": 0.0893,
+  "cfg_aeb_ped": 0.0893,
+  "cfg_aeb_tw": 0.0893,
+  "cfg_belt_loadlimiter": 0.9947,
+  "cfg_belt_pretensioner": 0.9947,
+  "cfg_belt_reminder_driver": 0.9947,
+  "cfg_belt_reminder_passenger": 0.8827,
+  "cfg_bsd": 0.1121,
+  "cfg_center_airbag": 0.1121,
+  "cfg_curtain_airbag": 0.9947,
+  "cfg_dms": 0.0228,
+  "cfg_dow": 0.0228,
+  "cfg_ecall": 0.0893,
+  "cfg_elk": 0.0228,
+  "cfg_esc": 0.972,
+  "cfg_front_airbag": 0.9947,
+  "cfg_isls": 0.0228,
+  "cfg_isofix": 0.9947,
+  "cfg_knee_airbag": 0.6883,
+  "cfg_ldw": 0.1121,
+  "cfg_lka": 0.1121,
+  "cfg_rcta": 0.0228,
+  "cfg_sas": 0.0893,
+  "cfg_seat_monitor": 0.9947,
+  "cfg_side_airbag": 0.9947,
+  "cfg_tsr": 0.0228,
+  "curb_weight_kg": 0.9895,
+  "displacement_ml": 0.8879,
+  "feature_source": 1.0,
+  "gross_weight_kg": 0.8827,
+  "headrest_type": 0.5289,
+  "height_mm": 0.9895,
+  "length_mm": 0.9895,
+  "price_10k": 0.9895,
+  "seat_model": 0.5657,
+  "seat_supplier": 0.5762,
+  "side_airbag_supplier": 0.5377,
+  "test_year": 1.0,
+  "vehicle_class_raw": 1.0,
+  "width_mm": 0.9895
+ },
+ "unmapped_top": []
+}

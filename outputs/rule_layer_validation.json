@@ -1,0 +1,65 @@
+{
+ "overall_accuracy": 0.9964973730297724,
+ "baseline": 0.996,
+ "passed": true,
+ "n": 571,
+ "misses": [
+  {
+   "variant_id": "69",
+   "version": "V5",
+   "decision_value": 0.8240000000000001,
+   "predicted": 5,
+   "official": 4.0,
+   "trace": [
+    "base:5"
+   ]
+  },
+  {
+   "variant_id": "260",
+   "version": "V4",
+   "decision_value": 56.9,
+   "predicted": 5,
+   "official": 4.0,
+   "trace": [
+    "base:5"
+   ]
+  }
+ ],
+ "by_version": {
+  "V1": {
+   "threshold_only": 1.0,
+   "full": 1.0,
+   "n": 88
+  },
+  "V2": {
+   "threshold_only": 1.0,
+   "full": 1.0,
+   "n": 84
+  },
+  "V3": {
+   "threshold_only": 1.0,
+   "full": 1.0,
+   "n": 124
+  },
+  "V4": {
+   "threshold_only": 0.9905660377358491,
+   "full": 0.9905660377358491,
+   "n": 106
+  },
+  "V5": {
+   "threshold_only": 0.696078431372549,
+   "full": 0.9901960784313726,
+   "n": 102
+  },
+  "V6": {
+   "threshold_only": 1.0,
+   "full": 1.0,
+   "n": 53
+  },
+  "V7": {
+   "threshold_only": 0.9285714285714286,
+   "full": 1.0,
+   "n": 14
+  }
+ }
+}

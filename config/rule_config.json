@@ -1,0 +1,651 @@
+{
+ "schema_version": "1.0",
+ "generated": "2026-08-14",
+ "source": "C-NCAP 管理规则 2006/2009/2012/2015/2018/2021/2024 各版原文",
+ "note": "本文件为规则层 g_v 的配置化表达，不含任何拟合参数。版本代号 V1..V7 依次对应 2006/2009/2012/2015/2018/2021/2024。",
+ "version_map": {
+  "V1": "2006",
+  "V2": "2009",
+  "V3": "2012",
+  "V4": "2015",
+  "V5": "2018",
+  "V6": "2021",
+  "V7": "2024"
+ },
+ "decision_variable": {
+  "V1": "total_score",
+  "V2": "total_score",
+  "V3": "total_score",
+  "V4": "total_score",
+  "V5": "overall_rate",
+  "V6": "overall_rate",
+  "V7": "overall_rate",
+  "_note": "判定量在 V5 由绝对总分改为综合得分率——规则层最根本的一次变更"
+ },
+ "total_max": {
+  "V1": 51,
+  "V2": 51,
+  "V3": 62,
+  "V4": 62
+ },
+ "star_thresholds": {
+  "V1": [
+   [
+    50,
+    6
+   ],
+   [
+    45,
+    5
+   ],
+   [
+    40,
+    4
+   ],
+   [
+    30,
+    3
+   ],
+   [
+    15,
+    2
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "V2": [
+   [
+    50,
+    6
+   ],
+   [
+    45,
+    5
+   ],
+   [
+    40,
+    4
+   ],
+   [
+    30,
+    3
+   ],
+   [
+    15,
+    2
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "V3": [
+   [
+    60,
+    6
+   ],
+   [
+    52,
+    5
+   ],
+   [
+    44,
+    4
+   ],
+   [
+    36,
+    3
+   ],
+   [
+    28,
+    2
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "V4": [
+   [
+    60,
+    6
+   ],
+   [
+    54,
+    5
+   ],
+   [
+    48,
+    4
+   ],
+   [
+    36,
+    3
+   ],
+   [
+    24,
+    2
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "V5": [
+   [
+    0.9,
+    6
+   ],
+   [
+    0.82,
+    5
+   ],
+   [
+    0.72,
+    4
+   ],
+   [
+    0.6,
+    3
+   ],
+   [
+    0.45,
+    2
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "V6": [
+   [
+    0.92,
+    6
+   ],
+   [
+    0.83,
+    5
+   ],
+   [
+    0.74,
+    4
+   ],
+   [
+    0.65,
+    3
+   ],
+   [
+    0.45,
+    2
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "V7": [
+   [
+    0.92,
+    6
+   ],
+   [
+    0.83,
+    5
+   ],
+   [
+    0.74,
+    4
+   ],
+   [
+    0.65,
+    3
+   ],
+   [
+    0.45,
+    2
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "_format": "[下界, 星级]，自上而下首个满足者生效；下界为 null 表示兜底。星级 6 表示五星+"
+ },
+ "module_min_rate": {
+  "_note": "V5 起：除综合得分率外还须满足各部分最低得分率；不满足则按其得分率达到的最低星级评定",
+  "V5": {
+   "6": {
+    "occupant": 0.95,
+    "vru": 0.75,
+    "active_by_test_year": {
+     "2018": 0.5,
+     "2019": 0.55,
+     "2020": 0.72,
+     "_default": 0.72
+    }
+   },
+   "5": {
+    "occupant": 0.85,
+    "vru": 0.65,
+    "active_by_test_year": {
+     "2018": 0.26,
+     "2019": 0.38,
+     "2020": 0.55,
+     "_default": 0.55
+    }
+   },
+   "4": {
+    "occupant": 0.75,
+    "vru": 0.5,
+    "active_by_test_year": {
+     "2018": 0.26,
+     "2019": 0.26,
+     "2020": 0.26,
+     "_default": 0.26
+    }
+   },
+   "3": {
+    "occupant": 0.65,
+    "vru": 0.4
+   },
+   "2": {
+    "occupant": 0.55,
+    "vru": 0.2
+   }
+  },
+  "V6": {
+   "6": {
+    "occupant": 0.95,
+    "vru": 0.75,
+    "active": 0.85
+   },
+   "5": {
+    "occupant": 0.85,
+    "vru": 0.65,
+    "active": 0.7
+   },
+   "4": {
+    "occupant": 0.75,
+    "vru": 0.5,
+    "active": 0.6
+   },
+   "3": {
+    "occupant": 0.65
+   },
+   "2": {
+    "occupant": 0.6
+   }
+  },
+  "V7": {
+   "6": {
+    "occupant": 0.95,
+    "vru": 0.75,
+    "active": 0.85
+   },
+   "5": {
+    "occupant": 0.85,
+    "vru": 0.7,
+    "active": 0.7
+   },
+   "4": {
+    "occupant": 0.75,
+    "vru": 0.65,
+    "active": 0.6
+   },
+   "3": {
+    "occupant": 0.65
+   },
+   "2": {
+    "occupant": 0.6
+   }
+  }
+ },
+ "item_level_gates": {
+  "_note": "V3/V4 基于细项得分的降级规则——规则层必须获得细项级预测才能执行，是选择细项建模的规程层面依据",
+  "V3": [
+   {
+    "applies_to_star": 5,
+    "condition": "any_zero",
+    "scope": [
+     {
+      "scenario": "frontal_frb100",
+      "dummy": "row1",
+      "regions": [
+       "head",
+       "neck",
+       "chest"
+      ]
+     },
+     {
+      "scenario": "frontal_odb40",
+      "dummy": "row1",
+      "regions": [
+       "head",
+       "neck",
+       "chest",
+       "headneck"
+      ]
+     },
+     {
+      "scenario": "side_mdb",
+      "dummy": "row1",
+      "regions": [
+       "head",
+       "chest",
+       "abdomen",
+       "pelvis"
+      ]
+     }
+    ],
+    "demote_to": 4
+   },
+   {
+    "applies_to_star": 4,
+    "condition": "row1_test_sum_below",
+    "threshold": 10,
+    "scope": [
+     "frontal_frb100",
+     "frontal_odb40",
+     "side_mdb"
+    ],
+    "demote_to": 3
+   }
+  ],
+  "V4": "same_as_V3"
+ },
+ "global_demotions": [
+  {
+   "from_version": "V4",
+   "id": "fire",
+   "rule": "任一碰撞试验结束后 3 分钟内出现明火，降一星",
+   "observable": false,
+   "note": "现场观测事件，结构化数据中无对应字段。规则层完备性受限于可观测性——V4 剩余 13 例还原误差全部源于此"
+  },
+  {
+   "from_version": "V5",
+   "id": "electrical_safety",
+   "rule": "电动/混合动力汽车不满足电气安全要求则不评定星级",
+   "observable": "partial"
+  }
+ ],
+ "occupant_score_formula": {
+  "V6": {
+   "ice": "frb100 + mpdb50 + 1.2*side_mdb + child_static + whiplash + curtain_hold + ecall",
+   "nev": "frb100 + mpdb50 + 1.5*side_pole + child_static + whiplash + curtain_hold + ecall",
+   "_source": "2021 年版 §4.1"
+  },
+  "V7": {
+   "all": "frb100 + mpdb50 + side_mdb + side_pole + side_farside + child_static + whiplash + cpd + ecall + curtain_hold",
+   "_note": "V7 起所有车型均须进行两项侧面碰撞试验，不再按动力形式分支"
+  }
+ },
+ "mutually_exclusive_branches": {
+  "V6": {
+   "id": "side_impact_by_powertrain",
+   "branches": [
+    {
+     "when": {
+      "powertrain": "ice"
+     },
+     "scenario": "side_mdb",
+     "coefficient": 1.2
+    },
+    {
+     "when": {
+      "powertrain": "nev"
+     },
+     "scenario": "side_pole",
+     "coefficient": 1.5
+    }
+   ],
+   "extra_gate": "侧面柱碰撞要求两侧同时装配侧面气帘或头胸一体式气囊",
+   "verified": "18 台走 MDB 侧碰者全为传统燃油车，35 台走柱碰者含纯电与插混"
+  }
+ },
+ "special_vehicle_rules": [
+  {
+   "id": "single_row",
+   "rule": "两门单排座车不计后排分数",
+   "V5_occupant_max": 57,
+   "V7_occupant_max": 82,
+   "V7_extra": "单排座车不进行儿童保护静态评价与儿童遗忘提醒评价"
+  },
+  {
+   "id": "V4_single_row_rear_full",
+   "rule": "V4：两门单排座车三项碰撞仅计前排评分，后排以满分计入总分"
+  },
+  {
+   "id": "pickup",
+   "rule": "V6：皮卡按单排座车评价；MPDB 碰撞兼容性为观察项不计分"
+  }
+ ],
+ "module_max": {
+  "V5": {
+   "occupant_single_row": 57
+  },
+  "V7": {
+   "occupant_multi_row": 113,
+   "occupant_single_row": 82
+  }
+ },
+ "invariants": [
+  {
+   "id": "conservation",
+   "expr": "Σ(该试验各细项满分) == 该试验官方分母",
+   "scope": "per (version, test)"
+  },
+  {
+   "id": "headneck_sum",
+   "expr": "max(headneck) == max(head) + max(neck)",
+   "scope": "per (version, scenario, dummy)，仅当三者并存"
+  },
+  {
+   "id": "branch_union",
+   "expr": "count(side_mdb) + count(side_pole) == n_vehicles",
+   "scope": "V6"
+  },
+  {
+   "id": "weight_sum",
+   "expr": "Σ(模块权重) == 1",
+   "scope": "per version (V5+)"
+  },
+  {
+   "id": "label_range",
+   "expr": "0 <= score/max <= 1",
+   "scope": "所有 role=target 的细项"
+  }
+ ],
+ "known_data_corrections": [
+  {
+   "target": "occ.whiplash.row1.upperneck",
+   "version": "V5",
+   "field": "max",
+   "from": 2.5,
+   "to": 1.5,
+   "reason": "规程 V5 鞭打 = NIC 2.0 + 上颈部 1.5 + 下颈部 1.5 = 5.0；数据记为 2.5 致三项和 6.0 ≠ 官方分母 5"
+  },
+  {
+   "target": "bonus_denominator",
+   "version": [
+    "V3",
+    "V4"
+   ],
+   "field": "denominator",
+   "from": 3,
+   "to": 4,
+   "reason": "V3 加分项含电子稳定控制 1 分，满分应为 4"
+  },
+  {
+   "target": "overall_score_semantics",
+   "field": "column",
+   "note": "该列语义随版本变化：V1–V4 为绝对总分，V5–V7 为综合得分率；建库时须拆分为 total_score 与 overall_rate 两列"
+  }
+ ],
+ "validation_baseline": {
+  "star_recovery_accuracy": {
+   "overall": 0.996,
+   "n": 571,
+   "note": "2026-08-14 修正 V4 星级阈值后实测。修正前为 0.979（V4 阈值取自非正式版）。",
+   "misses": 2,
+   "miss_detail": "V4 variant 260、V5 variant 69，均为明火降星（经使用者核实，V5-69 有公开报道佐证）"
+  }
+ },
+ "test_level_adjustments": {
+  "_note": "试验项级调整：不体现在任何细项得分中，仅以页面注释文本给出。规则层从细项汇总到试验项得分时必须处理，否则模块得分被系统性高估或低估。经 2157 组比对，1969 组（91.3%）细项和与官方试验得分完全一致。",
+  "penalties": [
+   {
+    "id": "mpdb_compatibility",
+    "scope": "frontal_mpdb50, V6/V7",
+    "rule": "MPDB 碰撞相容性评价罚分",
+    "prevalence": "V6 52/53 台、V7 13/13 台均有，属系统性罚分",
+    "magnitude": "V6 中位 1.49、V7 中位 2.27，最大 4.92",
+    "observability": "页面注释文本，如「注：碰撞相容性评价，罚分1.224分」"
+   },
+   {
+    "id": "curtain_belt_defect",
+    "scope": "side_mdb / frontal_*，各版本零星",
+    "rule": "气帘展开异常、安全带解锁力不满足等个案扣分",
+    "prevalence": "各版本每工况 1–19 台",
+    "magnitude": "多为 1.0 或 2.0 的整数扣分"
+   }
+  ],
+  "overrides": [
+   {
+    "id": "limit_exceeded_zero",
+    "scope": "任一工况",
+    "rule": "某部位指标超出极限值时，该假人全部得分计为 0",
+    "evidence": "V6 variant 59 侧面柱碰撞：细项和 9.502，官方试验得分 0.000/16，注「胸部压缩变形量超出极限值，该假人得分计为0分」",
+    "type": "一票否决（override），非罚分（penalty）",
+    "implication": "规则层的汇总不是单调加和——存在使整块归零的条件触发。这是「必须显式建模规则、不能用学习权重替代」的又一实证"
+   }
+  ],
+  "bonuses": [
+   {
+    "id": "single_row_rear_full",
+    "scope": "V4（2015 版）",
+    "rule": "两门单排座车型三项碰撞试验仅计前排评分，后排评分以满分计入总分",
+    "evidence": "variant 272 的三项试验官方得分均比细项和高 2.000，恰为该版后排满分",
+    "implication": "细项和 < 官方 的 24 组中，主因即此规则"
+   }
+  ]
+ },
+ "_provenance": {
+  "_doc": "每个参数组的原文出处与可判别性。修改前必须回查原文。详见 02_Protocol_Evidence/规程文件台账与阈值核对_20260814.md",
+  "_rule": "以中文版规程为准；英文版仅作辅助（已知 2024 英文版附录与中文版存在实质差异）",
+  "star_thresholds": {
+   "V1": {
+    "source": "2006年版（星级表页未定位，30/15 待核）",
+    "verified_by_data": [
+     "50",
+     "45",
+     "40"
+    ],
+    "unverifiable": [
+     "30",
+     "15"
+    ]
+   },
+   "V2": {
+    "source": "2009年版 p8（PDF 为逆序编码，还原后 05/54/04/03/51）",
+    "verified_by_data": [
+     "50",
+     "45"
+    ],
+    "unverifiable": [
+     "40",
+     "30",
+     "15"
+    ]
+   },
+   "V3": {
+    "source": "2012年版 p8-p9",
+    "verified_by_data": [
+     "60",
+     "52"
+    ],
+    "unverifiable": [
+     "44",
+     "36",
+     "28"
+    ]
+   },
+   "V4": {
+    "source": "2015年版【正式版·CATARC水印】p33：≥60→5+；≥54且<60→5；≥48且<54→4；≥36且<48→3；≥24且<36→2；<24→1",
+    "verified_by_data": [
+     "60",
+     "54",
+     "48"
+    ],
+    "unverifiable": [
+     "36",
+     "24"
+    ],
+    "correction": "2026-08-14 由 60/52/44/36/28 修正为 60/54/48/36/24。原值取自非正式版，导致 10 台还原失败并被误归因为明火降星"
+   },
+   "V5": {
+    "source": "2018年版修订 p53",
+    "verified_by_data": [
+     "0.90"
+    ],
+    "unverifiable": [
+     "0.82",
+     "0.72",
+     "0.60",
+     "0.45"
+    ]
+   },
+   "V6": {
+    "source": "2021年版修订 p11",
+    "verified_by_data": [
+     "0.92"
+    ],
+    "unverifiable": [
+     "0.83",
+     "0.74",
+     "0.65",
+     "0.45"
+    ]
+   },
+   "V7": {
+    "source": "2024年版 p13",
+    "verified_by_data": [],
+    "unverifiable": [
+     "0.92",
+     "0.83",
+     "0.74",
+     "0.65",
+     "0.45"
+    ],
+    "note": "V7 仅 14 台且集中高分区，五个阈值全部不可由数据证伪"
+   }
+  },
+  "module_min_rate": {
+   "V5": {
+    "source": "2018年版修订 p53，含主动安全按测评年份 2018/2019/2020 分档",
+    "status": "逐格确认"
+   },
+   "V6": {
+    "source": "2021年版修订 p98",
+    "status": "逐格确认"
+   },
+   "V7": {
+    "source": "2024年版 p121（VRU 门槛较 2021 提高：5星 65→70，4星 50→65）",
+    "status": "逐格确认"
+   }
+  },
+  "item_level_gates": {
+   "source": "2015年版正式版 p33",
+   "status": "确认与代码一致"
+  },
+  "global_demotions": {
+   "source": "2015年版正式版 p33（明火降星）",
+   "status": "确认；2026-08-14 经使用者核实，仅 V4-260 与 V5-69 两例适用，非此前记录的 11 例"
+  },
+  "special_vehicle_rules": {
+   "source": "2015年版正式版 p33（两门单排座车型后排以满分计入）",
+   "status": "确认；此条自 2015 版即存在，非 2021 版新增"
+  }
+ }
+}

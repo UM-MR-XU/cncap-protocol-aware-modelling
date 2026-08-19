@@ -1,0 +1,7 @@
+# Tested on Python 3.11.
+# src/gbdt.py needs only numpy, so the cross-implementation check still runs
+# if lightgbm cannot be installed.
+numpy>=1.26
+pandas>=2.0
+scikit-learn>=1.4
+lightgbm>=4.0        # optional: omit to run with the self-contained booster only

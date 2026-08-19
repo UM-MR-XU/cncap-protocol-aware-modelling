@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite the accompanying paper."
+title: "Protocol-Aware Modelling of Evolving Assessment Systems: code and derivative data"
+authors:
+  - family-names: Xu
+    given-names: Huayong
+  - family-names: Ong
+    given-names: Zhi Chao
+  - family-names: Lin
+    given-names: Zhenheng
+  - family-names: Siow
+    given-names: Pei Yi
+license: MIT
+repository-code: "https://github.com/UM-MR-XU/cncap-protocol-aware-modelling"
+preferred-citation:
+  type: article
+  title: "Protocol-Aware Modelling of Evolving Assessment Systems: A Three-Layer Transferable Decomposition"
+  authors:
+    - family-names: Xu
+      given-names: Huayong
+    - family-names: Ong
+      given-names: Zhi Chao
+    - family-names: Lin
+      given-names: Zhenheng
+    - family-names: Siow
+      given-names: Pei Yi
+  journal: "IEEE Access"
+  year: 2026
+  doi: "TO-BE-ASSIGNED"

@@ -1,0 +1,1646 @@
+{
+ "n_comparable": 2214,
+ "n_exact": 2026,
+ "exact_rate": 0.9150858175248419,
+ "n_with_gap": 188,
+ "gaps": [
+  {
+   "variant_id": "170",
+   "version": "V4",
+   "scenario": "frontal_odb40",
+   "item_sum": 15.76,
+   "official": 15.26,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "171",
+   "version": "V4",
+   "scenario": "side_mdb",
+   "item_sum": 18.0,
+   "official": 17.0,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "173",
+   "version": "V4",
+   "scenario": "frontal_frb100",
+   "item_sum": 14.68,
+   "official": 14.83,
+   "gap": -0.15
+  },
+  {
+   "variant_id": "176",
+   "version": "V4",
+   "scenario": "frontal_frb100",
+   "item_sum": 13.98,
+   "official": 14.78,
+   "gap": -0.8
+  },
+  {
+   "variant_id": "178",
+   "version": "V4",
+   "scenario": "frontal_frb100",
+   "item_sum": 14.31,
+   "official": 15.11,
+   "gap": -0.8
+  },
+  {
+   "variant_id": "182",
+   "version": "V4",
+   "scenario": "frontal_frb100",
+   "item_sum": 13.79,
+   "official": 14.59,
+   "gap": -0.8
+  },
+  {
+   "variant_id": "194",
+   "version": "V4",
+   "scenario": "frontal_odb40",
+   "item_sum": 14.66,
+   "official": 14.16,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "194",
+   "version": "V4",
+   "scenario": "side_mdb",
+   "item_sum": 18.0,
+   "official": 17.0,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "201",
+   "version": "V4",
+   "scenario": "frontal_frb100",
+   "item_sum": 15.21,
+   "official": 14.21,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "202",
+   "version": "V4",
+   "scenario": "side_mdb",
+   "item_sum": 18.0,
+   "official": 17.0,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "206",
+   "version": "V4",
+   "scenario": "frontal_odb40",
+   "item_sum": 15.0,
+   "official": 14.5,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "212",
+   "version": "V4",
+   "scenario": "frontal_frb100",
+   "item_sum": 15.45,
+   "official": 14.45,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "214",
+   "version": "V4",
+   "scenario": "frontal_frb100",
+   "item_sum": 15.94,
+   "official": 15.44,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "214",
+   "version": "V4",
+   "scenario": "frontal_odb40",
+   "item_sum": 15.58,
+   "official": 15.08,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "219",
+   "version": "V4",
+   "scenario": "frontal_frb100",
+   "item_sum": 17.28,
+   "official": 17.52,
+   "gap": -0.24
+  },
+  {
+   "variant_id": "234",
+   "version": "V4",
+   "scenario": "frontal_odb40",
+   "item_sum": 16.56,
+   "official": 16.06,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "243",
+   "version": "V4",
+   "scenario": "side_mdb",
+   "item_sum": 18.0,
+   "official": 17.0,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "244",
+   "version": "V4",
+   "scenario": "frontal_frb100",
+   "item_sum": 10.71,
+   "official": 9.71,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "246",
+   "version": "V4",
+   "scenario": "frontal_frb100",
+   "item_sum": 14.96,
+   "official": 13.96,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "246",
+   "version": "V4",
+   "scenario": "frontal_odb40",
+   "item_sum": 13.81,
+   "official": 13.54,
+   "gap": 0.27
+  },
+  {
+   "variant_id": "251",
+   "version": "V4",
+   "scenario": "frontal_frb100",
+   "item_sum": 8.25,
+   "official": 7.25,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "255",
+   "version": "V4",
+   "scenario": "whiplash",
+   "item_sum": 3.36,
+   "official": 0.0,
+   "gap": 3.36
+  },
+  {
+   "variant_id": "263",
+   "version": "V4",
+   "scenario": "frontal_odb40",
+   "item_sum": 17.5,
+   "official": 16.5,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "264",
+   "version": "V4",
+   "scenario": "whiplash",
+   "item_sum": 1.46,
+   "official": 2.0,
+   "gap": -0.54
+  },
+  {
+   "variant_id": "269",
+   "version": "V4",
+   "scenario": "frontal_frb100",
+   "item_sum": 12.94,
+   "official": 11.94,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "269",
+   "version": "V4",
+   "scenario": "frontal_odb40",
+   "item_sum": 9.22,
+   "official": 8.22,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "269",
+   "version": "V4",
+   "scenario": "side_mdb",
+   "item_sum": 15.49,
+   "official": 14.49,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "271",
+   "version": "V4",
+   "scenario": "frontal_frb100",
+   "item_sum": 15.54,
+   "official": 15.04,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "272",
+   "version": "V4",
+   "scenario": "frontal_frb100",
+   "item_sum": 12.49,
+   "official": 14.49,
+   "gap": -2.0
+  },
+  {
+   "variant_id": "272",
+   "version": "V4",
+   "scenario": "frontal_odb40",
+   "item_sum": 14.38,
+   "official": 16.38,
+   "gap": -2.0
+  },
+  {
+   "variant_id": "272",
+   "version": "V4",
+   "scenario": "side_mdb",
+   "item_sum": 14.77,
+   "official": 16.77,
+   "gap": -2.0
+  },
+  {
+   "variant_id": "275",
+   "version": "V4",
+   "scenario": "whiplash",
+   "item_sum": 2.68,
+   "official": 0.68,
+   "gap": 2.0
+  },
+  {
+   "variant_id": "280",
+   "version": "V4",
+   "scenario": "frontal_frb100",
+   "item_sum": 12.7,
+   "official": 12.2,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "281",
+   "version": "V4",
+   "scenario": "frontal_frb100",
+   "item_sum": 15.28,
+   "official": 14.78,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "321",
+   "version": "V3",
+   "scenario": "side_mdb",
+   "item_sum": 17.26,
+   "official": 16.26,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "333",
+   "version": "V3",
+   "scenario": "frontal_frb100",
+   "item_sum": 13.59,
+   "official": 12.59,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "353",
+   "version": "V3",
+   "scenario": "side_mdb",
+   "item_sum": 17.38,
+   "official": 16.38,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "378",
+   "version": "V3",
+   "scenario": "whiplash",
+   "item_sum": 7.56,
+   "official": 7.65,
+   "gap": -0.09
+  },
+  {
+   "variant_id": "387",
+   "version": "V3",
+   "scenario": "side_mdb",
+   "item_sum": 17.25,
+   "official": 16.25,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "390",
+   "version": "V3",
+   "scenario": "whiplash",
+   "item_sum": 6.97,
+   "official": 7.06,
+   "gap": -0.09
+  },
+  {
+   "variant_id": "392",
+   "version": "V3",
+   "scenario": "whiplash",
+   "item_sum": 7.23,
+   "official": 5.23,
+   "gap": 2.0
+  },
+  {
+   "variant_id": "403",
+   "version": "V3",
+   "scenario": "frontal_frb100",
+   "item_sum": 14.04,
+   "official": 14.84,
+   "gap": -0.8
+  },
+  {
+   "variant_id": "403",
+   "version": "V3",
+   "scenario": "side_mdb",
+   "item_sum": 18.0,
+   "official": 17.0,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "404",
+   "version": "V3",
+   "scenario": "frontal_frb100",
+   "item_sum": 11.58,
+   "official": 10.58,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "404",
+   "version": "V3",
+   "scenario": "frontal_odb40",
+   "item_sum": 7.75,
+   "official": 6.75,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "404",
+   "version": "V3",
+   "scenario": "whiplash",
+   "item_sum": 6.56,
+   "official": 4.56,
+   "gap": 2.0
+  },
+  {
+   "variant_id": "406",
+   "version": "V3",
+   "scenario": "side_mdb",
+   "item_sum": 13.22,
+   "official": 12.22,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "415",
+   "version": "V2",
+   "scenario": "side_mdb",
+   "item_sum": 15.09,
+   "official": 14.09,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "426",
+   "version": "V2",
+   "scenario": "side_mdb",
+   "item_sum": 13.87,
+   "official": 12.87,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "429",
+   "version": "V2",
+   "scenario": "side_mdb",
+   "item_sum": 16.0,
+   "official": 15.0,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "437",
+   "version": "V2",
+   "scenario": "frontal_frb100",
+   "item_sum": 13.48,
+   "official": 12.48,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "449",
+   "version": "V2",
+   "scenario": "frontal_frb100",
+   "item_sum": 13.66,
+   "official": 12.66,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "460",
+   "version": "V2",
+   "scenario": "side_mdb",
+   "item_sum": 15.93,
+   "official": 14.93,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "464",
+   "version": "V2",
+   "scenario": "frontal_odb40",
+   "item_sum": 7.75,
+   "official": 6.75,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "465",
+   "version": "V2",
+   "scenario": "frontal_odb40",
+   "item_sum": 9.32,
+   "official": 8.32,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "471",
+   "version": "V2",
+   "scenario": "frontal_frb100",
+   "item_sum": 11.74,
+   "official": 10.74,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "487",
+   "version": "V2",
+   "scenario": "side_mdb",
+   "item_sum": 16.0,
+   "official": 15.0,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "490",
+   "version": "V2",
+   "scenario": "frontal_frb100",
+   "item_sum": 12.6,
+   "official": 11.6,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "493",
+   "version": "V1",
+   "scenario": "side_mdb",
+   "item_sum": 12.6,
+   "official": 12.61,
+   "gap": -0.01
+  },
+  {
+   "variant_id": "517",
+   "version": "V1",
+   "scenario": "frontal_frb100",
+   "item_sum": 12.64,
+   "official": 11.64,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "525",
+   "version": "V1",
+   "scenario": "frontal_frb100",
+   "item_sum": 1.87,
+   "official": 0.87,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "527",
+   "version": "V1",
+   "scenario": "frontal_frb100",
+   "item_sum": 7.67,
+   "official": 6.67,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "527",
+   "version": "V1",
+   "scenario": "side_mdb",
+   "item_sum": 16.0,
+   "official": 15.0,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "529",
+   "version": "V1",
+   "scenario": "frontal_frb100",
+   "item_sum": 1.28,
+   "official": 0.28,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "529",
+   "version": "V1",
+   "scenario": "frontal_odb40",
+   "item_sum": 13.25,
+   "official": 12.25,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "534",
+   "version": "V1",
+   "scenario": "frontal_frb100",
+   "item_sum": 8.87,
+   "official": 7.87,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "538",
+   "version": "V1",
+   "scenario": "frontal_frb100",
+   "item_sum": 12.48,
+   "official": 11.48,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "544",
+   "version": "V1",
+   "scenario": "side_mdb",
+   "item_sum": 5.81,
+   "official": 4.81,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "548",
+   "version": "V1",
+   "scenario": "frontal_frb100",
+   "item_sum": 9.06,
+   "official": 8.06,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "105",
+   "version": "V5",
+   "scenario": "frontal_odb40",
+   "item_sum": 16.848,
+   "official": 15.848,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "106",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 17.577,
+   "official": 15.577,
+   "gap": 2.0
+  },
+  {
+   "variant_id": "107",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 17.407,
+   "official": 16.407,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "107",
+   "version": "V5",
+   "scenario": "side_mdb",
+   "item_sum": 20.0,
+   "official": 19.0,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "111",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 18.172,
+   "official": 17.672,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "111",
+   "version": "V5",
+   "scenario": "frontal_odb40",
+   "item_sum": 18.357,
+   "official": 17.357,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "119",
+   "version": "V5",
+   "scenario": "frontal_odb40",
+   "item_sum": 18.645,
+   "official": 18.145,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "120",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 14.714,
+   "official": 16.714,
+   "gap": -2.0
+  },
+  {
+   "variant_id": "121",
+   "version": "V5",
+   "scenario": "frontal_odb40",
+   "item_sum": 17.955,
+   "official": 17.455,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "122",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 18.167,
+   "official": 17.667,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "131",
+   "version": "V5",
+   "scenario": "frontal_odb40",
+   "item_sum": 19.13,
+   "official": 18.13,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "133",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 13.328,
+   "official": 12.828,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "133",
+   "version": "V5",
+   "scenario": "side_mdb",
+   "item_sum": 18.736,
+   "official": 17.736,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "134",
+   "version": "V5",
+   "scenario": "frontal_odb40",
+   "item_sum": 17.993,
+   "official": 16.993,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "135",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 14.348,
+   "official": 13.348,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "135",
+   "version": "V5",
+   "scenario": "whiplash",
+   "item_sum": 4.543,
+   "official": 2.543,
+   "gap": 2.0
+  },
+  {
+   "variant_id": "138",
+   "version": "V5",
+   "scenario": "side_mdb",
+   "item_sum": 17.056,
+   "official": 16.056,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "141",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 17.064,
+   "official": 16.564,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "156",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 18.18,
+   "official": 18.94,
+   "gap": -0.76
+  },
+  {
+   "variant_id": "156",
+   "version": "V5",
+   "scenario": "frontal_odb40",
+   "item_sum": 12.4,
+   "official": 14.19,
+   "gap": -1.79
+  },
+  {
+   "variant_id": "157",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 9.0,
+   "official": 7.0,
+   "gap": 2.0
+  },
+  {
+   "variant_id": "157",
+   "version": "V5",
+   "scenario": "side_mdb",
+   "item_sum": 19.37,
+   "official": 18.37,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "158",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 16.76,
+   "official": 18.71,
+   "gap": -1.95
+  },
+  {
+   "variant_id": "159",
+   "version": "V5",
+   "scenario": "frontal_odb40",
+   "item_sum": 16.99,
+   "official": 15.99,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "160",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 16.31,
+   "official": 18.2,
+   "gap": -1.89
+  },
+  {
+   "variant_id": "161",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 15.6,
+   "official": 17.12,
+   "gap": -1.52
+  },
+  {
+   "variant_id": "163",
+   "version": "V5",
+   "scenario": "frontal_odb40",
+   "item_sum": 13.82,
+   "official": 12.82,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "163",
+   "version": "V5",
+   "scenario": "side_mdb",
+   "item_sum": 13.18,
+   "official": 12.18,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "169",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 12.93,
+   "official": 11.93,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "70",
+   "version": "V5",
+   "scenario": "frontal_odb40",
+   "item_sum": 14.596,
+   "official": 13.596,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "71",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 18.713,
+   "official": 18.213,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "71",
+   "version": "V5",
+   "scenario": "frontal_odb40",
+   "item_sum": 17.491,
+   "official": 16.991,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "72",
+   "version": "V5",
+   "scenario": "frontal_odb40",
+   "item_sum": 17.141,
+   "official": 16.141,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "74",
+   "version": "V5",
+   "scenario": "frontal_odb40",
+   "item_sum": 17.692,
+   "official": 16.692,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "75",
+   "version": "V5",
+   "scenario": "frontal_odb40",
+   "item_sum": 18.838,
+   "official": 18.338,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "81",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 16.408,
+   "official": 15.408,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "81",
+   "version": "V5",
+   "scenario": "frontal_odb40",
+   "item_sum": 16.543,
+   "official": 16.043,
+   "gap": 0.5
+  },
+  {
+   "variant_id": "87",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 17.093,
+   "official": 17.349,
+   "gap": -0.256
+  },
+  {
+   "variant_id": "88",
+   "version": "V5",
+   "scenario": "frontal_odb40",
+   "item_sum": 15.365,
+   "official": 14.365,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "88",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 17.735,
+   "official": 18.135,
+   "gap": -0.4
+  },
+  {
+   "variant_id": "91",
+   "version": "V5",
+   "scenario": "frontal_odb40",
+   "item_sum": 17.831,
+   "official": 16.831,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "93",
+   "version": "V5",
+   "scenario": "frontal_frb100",
+   "item_sum": 18.468,
+   "official": 17.468,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "15",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.422,
+   "official": 20.77,
+   "gap": 2.652
+  },
+  {
+   "variant_id": "16",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.825,
+   "official": 21.687,
+   "gap": 2.138
+  },
+  {
+   "variant_id": "17",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.967,
+   "official": 19.817,
+   "gap": 3.15
+  },
+  {
+   "variant_id": "18",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.385,
+   "official": 20.181,
+   "gap": 2.204
+  },
+  {
+   "variant_id": "19",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.242,
+   "official": 21.644,
+   "gap": 0.598
+  },
+  {
+   "variant_id": "20",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 24.0,
+   "official": 21.541,
+   "gap": 2.459
+  },
+  {
+   "variant_id": "21",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 19.54,
+   "official": 18.316,
+   "gap": 1.224
+  },
+  {
+   "variant_id": "22",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 21.954,
+   "official": 18.469,
+   "gap": 3.485
+  },
+  {
+   "variant_id": "23",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.314,
+   "official": 21.596,
+   "gap": 0.718
+  },
+  {
+   "variant_id": "24",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.592,
+   "official": 20.119,
+   "gap": 2.473
+  },
+  {
+   "variant_id": "25",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.936,
+   "official": 19.334,
+   "gap": 3.602
+  },
+  {
+   "variant_id": "26",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.726,
+   "official": 22.236,
+   "gap": 1.49
+  },
+  {
+   "variant_id": "26",
+   "version": "V6",
+   "scenario": "side_mdb",
+   "item_sum": 19.0,
+   "official": 17.0,
+   "gap": 2.0
+  },
+  {
+   "variant_id": "27",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 21.949,
+   "official": 21.61,
+   "gap": 0.339
+  },
+  {
+   "variant_id": "28",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 21.954,
+   "official": 20.324,
+   "gap": 1.63
+  },
+  {
+   "variant_id": "29",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.88,
+   "official": 22.559,
+   "gap": 1.321
+  },
+  {
+   "variant_id": "30",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.639,
+   "official": 20.347,
+   "gap": 2.292
+  },
+  {
+   "variant_id": "31",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.842,
+   "official": 20.84,
+   "gap": 2.002
+  },
+  {
+   "variant_id": "31",
+   "version": "V6",
+   "scenario": "side_mdb",
+   "item_sum": 20.0,
+   "official": 19.0,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "32",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.037,
+   "official": 20.013,
+   "gap": 2.024
+  },
+  {
+   "variant_id": "33",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.105,
+   "official": 21.982,
+   "gap": 1.123
+  },
+  {
+   "variant_id": "35",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.869,
+   "official": 21.244,
+   "gap": 2.625
+  },
+  {
+   "variant_id": "36",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.987,
+   "official": 22.191,
+   "gap": 0.796
+  },
+  {
+   "variant_id": "37",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.511,
+   "official": 22.568,
+   "gap": 0.943
+  },
+  {
+   "variant_id": "38",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.191,
+   "official": 21.875,
+   "gap": 1.316
+  },
+  {
+   "variant_id": "39",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 20.243,
+   "official": 18.46,
+   "gap": 1.783
+  },
+  {
+   "variant_id": "40",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.644,
+   "official": 21.537,
+   "gap": 2.107
+  },
+  {
+   "variant_id": "41",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.461,
+   "official": 21.296,
+   "gap": 2.165
+  },
+  {
+   "variant_id": "42",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 21.959,
+   "official": 21.382,
+   "gap": 0.577
+  },
+  {
+   "variant_id": "43",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.467,
+   "official": 21.217,
+   "gap": 1.25
+  },
+  {
+   "variant_id": "44",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 21.385,
+   "official": 19.549,
+   "gap": 1.836
+  },
+  {
+   "variant_id": "45",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.149,
+   "official": 21.73,
+   "gap": 1.419
+  },
+  {
+   "variant_id": "46",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 21.66,
+   "official": 20.382,
+   "gap": 1.278
+  },
+  {
+   "variant_id": "47",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.184,
+   "official": 21.923,
+   "gap": 1.261
+  },
+  {
+   "variant_id": "48",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.438,
+   "official": 22.002,
+   "gap": 1.436
+  },
+  {
+   "variant_id": "49",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 21.482,
+   "official": 19.317,
+   "gap": 2.165
+  },
+  {
+   "variant_id": "50",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.238,
+   "official": 20.977,
+   "gap": 1.261
+  },
+  {
+   "variant_id": "51",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.752,
+   "official": 21.144,
+   "gap": 2.608
+  },
+  {
+   "variant_id": "52",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.525,
+   "official": 20.935,
+   "gap": 2.59
+  },
+  {
+   "variant_id": "53",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.885,
+   "official": 22.362,
+   "gap": 1.523
+  },
+  {
+   "variant_id": "54",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 21.839,
+   "official": 21.074,
+   "gap": 0.765
+  },
+  {
+   "variant_id": "55",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 20.818,
+   "official": 20.135,
+   "gap": 0.683
+  },
+  {
+   "variant_id": "56",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 20.943,
+   "official": 19.61,
+   "gap": 1.333
+  },
+  {
+   "variant_id": "57",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.15,
+   "official": 20.753,
+   "gap": 1.397
+  },
+  {
+   "variant_id": "57",
+   "version": "V6",
+   "scenario": "side_mdb",
+   "item_sum": 19.834,
+   "official": 19.96,
+   "gap": -0.126
+  },
+  {
+   "variant_id": "58",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.433,
+   "official": 21.139,
+   "gap": 1.294
+  },
+  {
+   "variant_id": "59",
+   "version": "V6",
+   "scenario": "frontal_frb100",
+   "item_sum": 14.26,
+   "official": 13.26,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "59",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 18.696,
+   "official": 16.111,
+   "gap": 2.585
+  },
+  {
+   "variant_id": "59",
+   "version": "V6",
+   "scenario": "side_pole",
+   "item_sum": 9.502,
+   "official": 0.0,
+   "gap": 9.502
+  },
+  {
+   "variant_id": "60",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 21.491,
+   "official": 20.818,
+   "gap": 0.673
+  },
+  {
+   "variant_id": "60",
+   "version": "V6",
+   "scenario": "side_mdb",
+   "item_sum": 19.589,
+   "official": 19.715,
+   "gap": -0.126
+  },
+  {
+   "variant_id": "61",
+   "version": "V6",
+   "scenario": "frontal_frb100",
+   "item_sum": 20.657,
+   "official": 17.863,
+   "gap": 2.794
+  },
+  {
+   "variant_id": "61",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 17.982,
+   "official": 16.668,
+   "gap": 1.314
+  },
+  {
+   "variant_id": "62",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.582,
+   "official": 20.946,
+   "gap": 1.636
+  },
+  {
+   "variant_id": "63",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 19.76,
+   "official": 18.588,
+   "gap": 1.172
+  },
+  {
+   "variant_id": "63",
+   "version": "V6",
+   "scenario": "side_mdb",
+   "item_sum": 19.874,
+   "official": 20.0,
+   "gap": -0.126
+  },
+  {
+   "variant_id": "64",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 21.923,
+   "official": 20.834,
+   "gap": 1.089
+  },
+  {
+   "variant_id": "65",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 20.682,
+   "official": 18.897,
+   "gap": 1.785
+  },
+  {
+   "variant_id": "66",
+   "version": "V6",
+   "scenario": "frontal_frb100",
+   "item_sum": 21.212,
+   "official": 20.212,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "66",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 20.552,
+   "official": 18.534,
+   "gap": 2.018
+  },
+  {
+   "variant_id": "66",
+   "version": "V6",
+   "scenario": "side_mdb",
+   "item_sum": 20.0,
+   "official": 19.0,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "67",
+   "version": "V6",
+   "scenario": "frontal_frb100",
+   "item_sum": 21.587,
+   "official": 20.587,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "67",
+   "version": "V6",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 21.288,
+   "official": 20.427,
+   "gap": 0.861
+  },
+  {
+   "variant_id": "10",
+   "version": "V7",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 21.887,
+   "official": 19.753,
+   "gap": 2.134
+  },
+  {
+   "variant_id": "11",
+   "version": "V7",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.108,
+   "official": 19.271,
+   "gap": 2.837
+  },
+  {
+   "variant_id": "11",
+   "version": "V7",
+   "scenario": "side_pole",
+   "item_sum": 18.0,
+   "official": 17.0,
+   "gap": 1.0
+  },
+  {
+   "variant_id": "13",
+   "version": "V7",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.553,
+   "official": 20.224,
+   "gap": 3.329
+  },
+  {
+   "variant_id": "14",
+   "version": "V7",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 20.364,
+   "official": 15.448,
+   "gap": 4.916
+  },
+  {
+   "variant_id": "1",
+   "version": "V7",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.047,
+   "official": 22.117,
+   "gap": 0.93
+  },
+  {
+   "variant_id": "2",
+   "version": "V7",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.843,
+   "official": 23.21,
+   "gap": 0.633
+  },
+  {
+   "variant_id": "3",
+   "version": "V7",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.133,
+   "official": 20.395,
+   "gap": 1.738
+  },
+  {
+   "variant_id": "4",
+   "version": "V7",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 21.646,
+   "official": 18.96,
+   "gap": 2.686
+  },
+  {
+   "variant_id": "5",
+   "version": "V7",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.832,
+   "official": 21.558,
+   "gap": 2.274
+  },
+  {
+   "variant_id": "6",
+   "version": "V7",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.731,
+   "official": 20.058,
+   "gap": 2.673
+  },
+  {
+   "variant_id": "7",
+   "version": "V7",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.442,
+   "official": 20.488,
+   "gap": 2.954
+  },
+  {
+   "variant_id": "8",
+   "version": "V7",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 23.15,
+   "official": 21.312,
+   "gap": 1.838
+  },
+  {
+   "variant_id": "9",
+   "version": "V7",
+   "scenario": "frontal_mpdb50",
+   "item_sum": 22.391,
+   "official": 20.605,
+   "gap": 1.786
+  }
+ ],
+ "by_version_scenario": {
+  "V4|frontal_frb100": {
+   "n": 106,
+   "exact": 90
+  },
+  "V4|frontal_odb40": {
+   "n": 106,
+   "exact": 97
+  },
+  "V4|side_mdb": {
+   "n": 105,
+   "exact": 99
+  },
+  "V4|whiplash": {
+   "n": 106,
+   "exact": 103
+  },
+  "V3|frontal_frb100": {
+   "n": 124,
+   "exact": 121
+  },
+  "V3|frontal_odb40": {
+   "n": 124,
+   "exact": 123
+  },
+  "V3|side_mdb": {
+   "n": 124,
+   "exact": 119
+  },
+  "V3|whiplash": {
+   "n": 124,
+   "exact": 120
+  },
+  "V2|frontal_frb100": {
+   "n": 84,
+   "exact": 80
+  },
+  "V2|frontal_odb40": {
+   "n": 83,
+   "exact": 81
+  },
+  "V2|side_mdb": {
+   "n": 84,
+   "exact": 79
+  },
+  "V1|frontal_frb100": {
+   "n": 88,
+   "exact": 81
+  },
+  "V1|frontal_odb40": {
+   "n": 88,
+   "exact": 87
+  },
+  "V1|side_mdb": {
+   "n": 88,
+   "exact": 85
+  },
+  "V5|frontal_frb100": {
+   "n": 101,
+   "exact": 82
+  },
+  "V5|frontal_odb40": {
+   "n": 102,
+   "exact": 85
+  },
+  "V5|side_mdb": {
+   "n": 102,
+   "exact": 97
+  },
+  "V5|whiplash": {
+   "n": 102,
+   "exact": 101
+  },
+  "V6|frontal_frb100": {
+   "n": 53,
+   "exact": 49
+  },
+  "V6|frontal_mpdb50": {
+   "n": 53,
+   "exact": 1
+  },
+  "V6|side_pole": {
+   "n": 35,
+   "exact": 34
+  },
+  "V6|whiplash": {
+   "n": 53,
+   "exact": 53
+  },
+  "V6|child_static": {
+   "n": 44,
+   "exact": 44
+  },
+  "V6|side_mdb": {
+   "n": 18,
+   "exact": 12
+  },
+  "V7|frontal_frb100": {
+   "n": 13,
+   "exact": 13
+  },
+  "V7|frontal_mpdb50": {
+   "n": 13,
+   "exact": 0
+  },
+  "V7|side_mdb": {
+   "n": 13,
+   "exact": 13
+  },
+  "V7|side_pole": {
+   "n": 13,
+   "exact": 12
+  },
+  "V7|child_static": {
+   "n": 13,
+   "exact": 13
+  },
+  "V7|whiplash": {
+   "n": 13,
+   "exact": 13
+  },
+  "V7|cpd": {
+   "n": 13,
+   "exact": 13
+  },
+  "V7|ecall": {
+   "n": 13,
+   "exact": 13
+  },
+  "V7|curtain_hold": {
+   "n": 13,
+   "exact": 13
+  }
+ }
+}

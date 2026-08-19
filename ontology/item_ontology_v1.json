@@ -1,0 +1,5087 @@
+{
+ "schema_version": "1.0",
+ "name": "C-NCAP occupant protection item ontology",
+ "generated": "2026-08-14",
+ "decision_log_ref": "06_Project_Plan/DECISIONS_决策日志.md",
+ "version_map": {
+  "2006": "V1",
+  "2009": "V2",
+  "2012": "V3",
+  "2015": "V4",
+  "2018": "V5",
+  "2021": "V6",
+  "2024年版": "V7"
+ },
+ "naming": {
+  "pattern": "occ.<scenario>.<dummy>.<region>",
+  "dummy_codes": {
+   "row1": "前排乘员位",
+   "row2_adult": "第二排成年乘员",
+   "row2_child": "第二排儿童乘员"
+  },
+  "principle": "dummy 仅编码座位与乘员类型；假人型号记入 sigma，由 scenario 自动区分（D-009 / D-010）"
+ },
+ "roles": {
+  "target": "回归预测目标",
+  "penalty": "罚分项，不作回归目标",
+  "rule_unit_test": "规则层单元测试",
+  "aggregation_source": "聚合来源，主线不直接预测",
+  "unreliable_max": "数据源满分字段不可靠，待改用试验项级得分（W3）"
+ },
+ "observability_classes": {
+  "config_gated": "配置门控项",
+  "structure_driven": "结构主导项",
+  "component_driven": "部件主导项"
+ },
+ "invariants": [
+  {
+   "type": "sum",
+   "target": "occ.<scenario>.<dummy>.headneck",
+   "sources": [
+    "occ.<scenario>.<dummy>.head",
+    "occ.<scenario>.<dummy>.neck"
+   ],
+   "scope": "same version & vehicle",
+   "note": "同版本内两种报告粒度并存，满分严格可加（1.6+0.4=2.0；0.8+0.2=1.0）"
+  },
+  {
+   "type": "conservation",
+   "rule": "Σ 同一试验各细项满分 = 该试验官方分母",
+   "scope": "per (version,test)"
+  }
+ ],
+ "sigma_table": {
+  "frontal_frb100": {
+   "speed_kmh": {
+    "V1": 50,
+    "V2": 50,
+    "V3": 50,
+    "V4": 50,
+    "V5": 50,
+    "V6": 50,
+    "V7": 55
+   },
+   "barrier": {
+    "V1": "RB-FIXED",
+    "V2": "RB-FIXED",
+    "V3": "RB-FIXED",
+    "V4": "RB-FIXED",
+    "V5": "RB-FIXED",
+    "V6": "RB-FIXED",
+    "V7": "RB-FIXED"
+   },
+   "row1_dummy": {
+    "V1": "HIII-50th",
+    "V2": "HIII-50th",
+    "V3": "HIII-50th",
+    "V4": "HIII-50th",
+    "V5": "HIII-50th",
+    "V6": "HIII-50th",
+    "V7": "HIII-50th"
+   },
+   "row2_dummy": {
+    "V1": "HIII-5th",
+    "V2": "HIII-5th",
+    "V3": "HIII-5th",
+    "V4": "HIII-5th",
+    "V5": "HIII-5th",
+    "V6": "HIII-5th",
+    "V7": "HIII-5th"
+   },
+   "row2_child_dummy": {
+    "V2": "P3",
+    "V3": "P3",
+    "V4": "P3",
+    "V5": "Q3",
+    "V6": "Q3",
+    "V7": "Q3"
+   }
+  },
+  "frontal_odb40": {
+   "speed_kmh": {
+    "V1": 56,
+    "V2": 56,
+    "V3": 64,
+    "V4": 64,
+    "V5": 64
+   },
+   "barrier": {
+    "V1": "ODB",
+    "V2": "ODB",
+    "V3": "ODB",
+    "V4": "ODB",
+    "V5": "ODB"
+   },
+   "row1_dummy": {
+    "V1": "HIII-50th",
+    "V2": "HIII-50th",
+    "V3": "HIII-50th",
+    "V4": "HIII-50th",
+    "V5": "HIII-50th"
+   },
+   "row2_dummy": {
+    "V1": "HIII-5th",
+    "V2": "HIII-5th",
+    "V3": "HIII-5th",
+    "V4": "HIII-5th",
+    "V5": "HIII-5th"
+   }
+  },
+  "frontal_mpdb50": {
+   "speed_kmh": {
+    "V6": 50,
+    "V7": 50
+   },
+   "barrier": {
+    "V6": "MPDB",
+    "V7": "MPDB"
+   },
+   "row1_dummy": {
+    "V6": "THOR-50th+HIII-5th",
+    "V7": "THOR-50th+HIII-5th"
+   },
+   "row2_dummy": {
+    "V6": "HIII-5th",
+    "V7": "HIII-5th"
+   },
+   "row2_child_dummy": {
+    "V6": "Q10",
+    "V7": "Q10"
+   }
+  },
+  "side_mdb": {
+   "speed_kmh": {
+    "V1": 50,
+    "V2": 50,
+    "V3": 50,
+    "V4": 50,
+    "V5": 50,
+    "V6": 50,
+    "V7": 60
+   },
+   "barrier": {
+    "V1": "AE-MDB",
+    "V2": "AE-MDB",
+    "V3": "AE-MDB",
+    "V4": "AE-MDB",
+    "V5": "AE-MDB",
+    "V6": "AE-MDB",
+    "V7": "SC-MDB"
+   },
+   "row1_dummy": {
+    "V1": "EuroSID-II",
+    "V2": "EuroSID-II",
+    "V3": "EuroSID-II",
+    "V4": "EuroSID-II",
+    "V5": "WorldSID-50th",
+    "V6": "WorldSID-50th",
+    "V7": "WorldSID-50th"
+   },
+   "row2_dummy": {
+    "V2": "SID-IIs",
+    "V3": "SID-IIs",
+    "V4": "SID-IIs",
+    "V5": "SID-IIs",
+    "V6": "SID-IIs",
+    "V7": "SID-IIs"
+   }
+  },
+  "side_pole": {
+   "speed_kmh": {
+    "V6": 32,
+    "V7": 32
+   },
+   "barrier": {
+    "V6": "RIGID-POLE",
+    "V7": "RIGID-POLE"
+   },
+   "row1_dummy": {
+    "V6": "WorldSID-50th",
+    "V7": "WorldSID-50th"
+   },
+   "row2_child_dummy": {
+    "V7": "Q3"
+   }
+  },
+  "whiplash": {
+   "delta_v_kmh": {
+    "V3": 15.65,
+    "V4": 15.65,
+    "V5": 20.0,
+    "V6": 20.0,
+    "V7": 20.0
+   },
+   "barrier": {
+    "V3": "SLED-NO-BARRIER",
+    "V4": "SLED-NO-BARRIER",
+    "V5": "SLED-NO-BARRIER",
+    "V6": "SLED-NO-BARRIER",
+    "V7": "SLED-NO-BARRIER"
+   },
+   "dummy": {
+    "V3": "BioRID-II",
+    "V4": "BioRID-II",
+    "V5": "BioRID-II",
+    "V6": "BioRID-II",
+    "V7": "BioRID-II"
+   }
+  },
+  "side_farside": {
+   "speed_kmh": {
+    "V7": "N/A-STATIC"
+   },
+   "barrier": {
+    "V7": "VIRTUAL"
+   },
+   "dummy": {
+    "V7": "WorldSID-50th-VIRTUAL"
+   }
+  },
+  "child_static": {
+   "speed_kmh": {
+    "V6": "N/A-STATIC",
+    "V7": "N/A-STATIC"
+   },
+   "barrier": {
+    "V6": "N/A-STATIC",
+    "V7": "N/A-STATIC"
+   },
+   "dummy": {
+    "V6": "N/A-STATIC",
+    "V7": "N/A-STATIC"
+   }
+  },
+  "bonus": {
+   "speed_kmh": {
+    "V3": "N/A-STATIC",
+    "V4": "N/A-STATIC",
+    "V5": "N/A-STATIC"
+   },
+   "barrier": {
+    "V3": "N/A-STATIC",
+    "V4": "N/A-STATIC",
+    "V5": "N/A-STATIC"
+   },
+   "dummy": {
+    "V3": "N/A-STATIC",
+    "V4": "N/A-STATIC",
+    "V5": "N/A-STATIC"
+   }
+  },
+  "cpd": {
+   "speed_kmh": {
+    "V7": "N/A-STATIC"
+   },
+   "barrier": {
+    "V7": "N/A-STATIC"
+   },
+   "dummy": {
+    "V7": "N/A-STATIC"
+   }
+  },
+  "ecall": {
+   "speed_kmh": {
+    "V7": "N/A-STATIC"
+   },
+   "barrier": {
+    "V7": "N/A-STATIC"
+   },
+   "dummy": {
+    "V7": "N/A-STATIC"
+   }
+  },
+  "curtain_hold": {
+   "speed_kmh": {
+    "V7": "N/A-STATIC"
+   },
+   "barrier": {
+    "V7": "N/A-STATIC"
+   },
+   "dummy": {
+    "V7": "N/A-STATIC"
+   }
+  }
+ },
+ "aggregation_rules": [
+  {
+   "target": "occ.whiplash.row1.neckscore",
+   "applies_to": [
+    "V3",
+    "V4",
+    "V5"
+   ],
+   "sources": [
+    "occ.whiplash.row1.nic",
+    "occ.whiplash.row1.upperneck",
+    "occ.whiplash.row1.lowerneck"
+   ],
+   "op": "sum",
+   "max_after": {
+    "V3": 4.0,
+    "V4": 4.0,
+    "V5": 5.0
+   },
+   "rationale": "D-017：数据源自 V6 起仅公布聚合分；不聚合则 V5→V6 折鞭打项不可迁移。聚合方向无损且可校验（三项之和=聚合分）。原始三项保留作粒度消融。"
+  }
+ ],
+ "corrections": [
+  {
+   "target": "occ.whiplash.row1.upperneck",
+   "version": "V5",
+   "field": "max",
+   "from": 2.5,
+   "to": 1.5,
+   "reason": "规程 V5 鞭打为 NIC 2.0 + 上颈部 1.5 + 下颈部 1.5 = 5.0；数据记为 2.5 致三项和 6.0 ≠ 官方分母 5"
+  }
+ ],
+ "items": [
+  {
+   "item_id": "occ.bonus.二排乘员安全带提醒装置",
+   "item_id_coarse": "occ.bonus.二排乘员安全带提醒装置",
+   "scenario": "bonus",
+   "dummy": null,
+   "region": "二排乘员安全带提醒装置",
+   "role": "rule_unit_test",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "config_gated",
+   "present_in": [
+    "V3",
+    "V4",
+    "V5"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V3": {
+     "max": 1.0,
+     "coverage": 124,
+     "raw_test": "加分项",
+     "raw_dummy": "子项",
+     "raw_region": "二排乘员安全带提醒装置",
+     "sigma": {
+      "speed_kmh": "N/A-STATIC",
+      "barrier": "N/A-STATIC",
+      "dummy": "N/A-STATIC"
+     }
+    },
+    "V4": {
+     "max": 1.0,
+     "coverage": 106,
+     "raw_test": "加分项",
+     "raw_dummy": "子项",
+     "raw_region": "二排乘员安全带提醒装置",
+     "sigma": {
+      "speed_kmh": "N/A-STATIC",
+      "barrier": "N/A-STATIC",
+      "dummy": "N/A-STATIC"
+     }
+    },
+    "V5": {
+     "max": 1.0,
+     "coverage": 102,
+     "raw_test": "加分项",
+     "raw_dummy": "子项",
+     "raw_region": "二排乘员安全带提醒装置",
+     "sigma": {
+      "speed_kmh": "N/A-STATIC",
+      "barrier": "N/A-STATIC",
+      "dummy": "N/A-STATIC"
+     }
+    }
+   },
+   "evolution": {
+    "V3": "配置驱动加/罚分",
+    "V4": "配置驱动加/罚分",
+    "V5": "配置驱动加/罚分"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.bonus.侧面安全气囊及气帘",
+   "item_id_coarse": "occ.bonus.侧面安全气囊及气帘",
+   "scenario": "bonus",
+   "dummy": null,
+   "region": "侧面安全气囊及气帘",
+   "role": "rule_unit_test",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "config_gated",
+   "present_in": [
+    "V3",
+    "V4",
+    "V5"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V3": {
+     "max": 3.0,
+     "coverage": 124,
+     "raw_test": "加分项",
+     "raw_dummy": "子项",
+     "raw_region": "侧面安全气囊及气帘",
+     "sigma": {
+      "speed_kmh": "N/A-STATIC",
+      "barrier": "N/A-STATIC",
+      "dummy": "N/A-STATIC"
+     }
+    },
+    "V4": {
+     "max": 3.0,
+     "coverage": 106,
+     "raw_test": "加分项",
+     "raw_dummy": "子项",
+     "raw_region": "侧面安全气囊及气帘",
+     "sigma": {
+      "speed_kmh": "N/A-STATIC",
+      "barrier": "N/A-STATIC",
+      "dummy": "N/A-STATIC"
+     }
+    },
+    "V5": {
+     "max": 3.0,
+     "coverage": 102,
+     "raw_test": "加分项",
+     "raw_dummy": "子项",
+     "raw_region": "侧面安全气囊及气帘",
+     "sigma": {
+      "speed_kmh": "N/A-STATIC",
+      "barrier": "N/A-STATIC",
+      "dummy": "N/A-STATIC"
+     }
+    }
+   },
+   "evolution": {
+    "V3": "配置驱动加/罚分",
+    "V4": "配置驱动加/罚分",
+    "V5": "配置驱动加/罚分"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.bonus.前排乘员安全带提醒装置",
+   "item_id_coarse": "occ.bonus.前排乘员安全带提醒装置",
+   "scenario": "bonus",
+   "dummy": null,
+   "region": "前排乘员安全带提醒装置",
+   "role": "rule_unit_test",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "config_gated",
+   "present_in": [
+    "V3",
+    "V4",
+    "V5"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V3": {
+     "max": 1.0,
+     "coverage": 124,
+     "raw_test": "加分项",
+     "raw_dummy": "子项",
+     "raw_region": "前排乘员安全带提醒装置",
+     "sigma": {
+      "speed_kmh": "N/A-STATIC",
+      "barrier": "N/A-STATIC",
+      "dummy": "N/A-STATIC"
+     }
+    },
+    "V4": {
+     "max": 1.0,
+     "coverage": 106,
+     "raw_test": "加分项",
+     "raw_dummy": "子项",
+     "raw_region": "前排乘员安全带提醒装置",
+     "sigma": {
+      "speed_kmh": "N/A-STATIC",
+      "barrier": "N/A-STATIC",
+      "dummy": "N/A-STATIC"
+     }
+    },
+    "V5": {
+     "max": 1.0,
+     "coverage": 102,
+     "raw_test": "加分项",
+     "raw_dummy": "子项",
+     "raw_region": "前排乘员安全带提醒装置",
+     "sigma": {
+      "speed_kmh": "N/A-STATIC",
+      "barrier": "N/A-STATIC",
+      "dummy": "N/A-STATIC"
+     }
+    }
+   },
+   "evolution": {
+    "V3": "配置驱动加/罚分",
+    "V4": "配置驱动加/罚分",
+    "V5": "配置驱动加/罚分"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.child_static.crs_install",
+   "item_id_coarse": "occ.child_static.crs_install",
+   "scenario": "child_static",
+   "dummy": null,
+   "region": "crs_install",
+   "role": "unreliable_max",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "config_gated",
+   "present_in": [
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 1.0,
+     "coverage": 44,
+     "raw_test": "儿童乘员保护静态评价",
+     "raw_dummy": "子项",
+     "raw_region": "儿童约束系统安装检查",
+     "sigma": {
+      "speed_kmh": "N/A-STATIC",
+      "barrier": "N/A-STATIC",
+      "dummy": "N/A-STATIC"
+     }
+    },
+    "V7": {
+     "max": 1.0,
+     "coverage": 13,
+     "raw_test": "儿童保护静态评价",
+     "raw_dummy": "子项",
+     "raw_region": "儿童约束系统安装检查",
+     "sigma": {
+      "speed_kmh": "N/A-STATIC",
+      "barrier": "N/A-STATIC",
+      "dummy": "N/A-STATIC"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "新增静态/功能评价",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.child_static.vehicle_based",
+   "item_id_coarse": "occ.child_static.vehicle_based",
+   "scenario": "child_static",
+   "dummy": null,
+   "region": "vehicle_based",
+   "role": "unreliable_max",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "config_gated",
+   "present_in": [
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 2.0,
+     "coverage": 44,
+     "raw_test": "儿童乘员保护静态评价",
+     "raw_dummy": "子项",
+     "raw_region": "基于车辆的评估",
+     "sigma": {
+      "speed_kmh": "N/A-STATIC",
+      "barrier": "N/A-STATIC",
+      "dummy": "N/A-STATIC"
+     }
+    },
+    "V7": {
+     "max": 2.0,
+     "coverage": 13,
+     "raw_test": "儿童保护静态评价",
+     "raw_dummy": "子项",
+     "raw_region": "基于车辆的评估",
+     "sigma": {
+      "speed_kmh": "N/A-STATIC",
+      "barrier": "N/A-STATIC",
+      "dummy": "N/A-STATIC"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "新增静态/功能评价",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.cpd.present",
+   "item_id_coarse": "occ.cpd.present",
+   "scenario": "cpd",
+   "dummy": null,
+   "region": "present",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "config_gated",
+   "present_in": [
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V7": {
+     "max": 2.0,
+     "coverage": 13,
+     "raw_test": "儿童遗忘提醒（CPD）",
+     "raw_dummy": "子项",
+     "raw_region": "儿童遗忘提醒（CPD）",
+     "sigma": {
+      "speed_kmh": "N/A-STATIC",
+      "barrier": "N/A-STATIC",
+      "dummy": "N/A-STATIC"
+     }
+    }
+   },
+   "evolution": {
+    "V7": "新增静态/功能评价"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.curtain_hold.present",
+   "item_id_coarse": "occ.curtain_hold.present",
+   "scenario": "curtain_hold",
+   "dummy": null,
+   "region": "present",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "config_gated",
+   "present_in": [
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V7": {
+     "max": 3.0,
+     "coverage": 13,
+     "raw_test": "保压气帘",
+     "raw_dummy": "子项",
+     "raw_region": "保压气帘",
+     "sigma": {
+      "speed_kmh": "N/A-STATIC",
+      "barrier": "N/A-STATIC",
+      "dummy": "N/A-STATIC"
+     }
+    }
+   },
+   "evolution": {
+    "V7": "新增静态/功能评价"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.ecall.auto",
+   "item_id_coarse": "occ.ecall.auto",
+   "scenario": "ecall",
+   "dummy": null,
+   "region": "auto",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "config_gated",
+   "present_in": [
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V7": {
+     "max": 1.0,
+     "coverage": 13,
+     "raw_test": "E-CALL",
+     "raw_dummy": "子项",
+     "raw_region": "自动模式",
+     "sigma": {
+      "speed_kmh": "N/A-STATIC",
+      "barrier": "N/A-STATIC",
+      "dummy": "N/A-STATIC"
+     }
+    }
+   },
+   "evolution": {
+    "V7": "新增静态/功能评价"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.ecall.manual",
+   "item_id_coarse": "occ.ecall.manual",
+   "scenario": "ecall",
+   "dummy": null,
+   "region": "manual",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "config_gated",
+   "present_in": [
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V7": {
+     "max": 1.0,
+     "coverage": 13,
+     "raw_test": "E-CALL",
+     "raw_dummy": "子项",
+     "raw_region": "手动模式",
+     "sigma": {
+      "speed_kmh": "N/A-STATIC",
+      "barrier": "N/A-STATIC",
+      "dummy": "N/A-STATIC"
+     }
+    }
+   },
+   "evolution": {
+    "V7": "新增静态/功能评价"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_frb100.row1.chest",
+   "item_id_coarse": "occ.frontal_full.row1.torso",
+   "scenario": "frontal_frb100",
+   "dummy": "row1",
+   "region": "chest",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V1": {
+     "max": 5.0,
+     "coverage": 88,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V2": {
+     "max": 5.0,
+     "coverage": 84,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V3": {
+     "max": 5.0,
+     "coverage": 124,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V4": {
+     "max": 5.0,
+     "coverage": 106,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V5": {
+     "max": 5.0,
+     "coverage": 101,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V6": {
+     "max": 5.0,
+     "coverage": 53,
+     "raw_test": "正面100%重叠刚性壁障碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V7": {
+     "max": 5.0,
+     "coverage": 13,
+     "raw_test": "正面100%重叠刚性壁障碰撞",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 55,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    }
+   },
+   "evolution": {
+    "V1": "基线(首版)",
+    "V2": "沿用",
+    "V3": "沿用",
+    "V4": "沿用",
+    "V5": "沿用",
+    "V6": "沿用",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_frb100.row1.head",
+   "item_id_coarse": "occ.frontal_full.row1.headneck",
+   "scenario": "frontal_frb100",
+   "dummy": "row1",
+   "region": "head",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V1": {
+     "max": 5.0,
+     "coverage": 88,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V2": {
+     "max": 5.0,
+     "coverage": 84,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V3": {
+     "max": 5.0,
+     "coverage": 124,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V4": {
+     "max": 5.0,
+     "coverage": 106,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V5": {
+     "max": 5.0,
+     "coverage": 101,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V6": {
+     "max": 5.0,
+     "coverage": 53,
+     "raw_test": "正面100%重叠刚性壁障碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V7": {
+     "max": 5.0,
+     "coverage": 13,
+     "raw_test": "正面100%重叠刚性壁障碰撞",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 55,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    }
+   },
+   "evolution": {
+    "V1": "基线(首版)",
+    "V2": "沿用",
+    "V3": "沿用",
+    "V4": "沿用",
+    "V5": "沿用",
+    "V6": "沿用",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_frb100.row1.leg",
+   "item_id_coarse": "occ.frontal_full.row1.lowerlimb",
+   "scenario": "frontal_frb100",
+   "dummy": "row1",
+   "region": "leg",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V1": {
+     "max": 2.0,
+     "coverage": 88,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "小腿",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V2": {
+     "max": 2.0,
+     "coverage": 84,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "小腿",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V3": {
+     "max": 2.0,
+     "coverage": 124,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "小腿",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V4": {
+     "max": 2.0,
+     "coverage": 106,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "小腿",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V5": {
+     "max": 2.0,
+     "coverage": 101,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "小腿",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V6": {
+     "max": 2.0,
+     "coverage": 53,
+     "raw_test": "正面100%重叠刚性壁障碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "小腿",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V7": {
+     "max": 2.0,
+     "coverage": 13,
+     "raw_test": "正面100%重叠刚性壁障碰撞",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "小腿",
+     "sigma": {
+      "speed_kmh": 55,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    }
+   },
+   "evolution": {
+    "V1": "基线(首版)",
+    "V2": "沿用",
+    "V3": "沿用",
+    "V4": "沿用",
+    "V5": "沿用",
+    "V6": "沿用",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_frb100.row1.neck",
+   "item_id_coarse": "occ.frontal_full.row1.headneck",
+   "scenario": "frontal_frb100",
+   "dummy": "row1",
+   "region": "neck",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V1": {
+     "max": 2.0,
+     "coverage": 88,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V2": {
+     "max": 2.0,
+     "coverage": 84,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V3": {
+     "max": 2.0,
+     "coverage": 124,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V4": {
+     "max": 2.0,
+     "coverage": 106,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V5": {
+     "max": 2.0,
+     "coverage": 101,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V6": {
+     "max": 2.0,
+     "coverage": 53,
+     "raw_test": "正面100%重叠刚性壁障碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V7": {
+     "max": 2.0,
+     "coverage": 13,
+     "raw_test": "正面100%重叠刚性壁障碰撞",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "颈部",
+     "sigma": {
+      "speed_kmh": 55,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    }
+   },
+   "evolution": {
+    "V1": "基线(首版)",
+    "V2": "沿用",
+    "V3": "沿用",
+    "V4": "沿用",
+    "V5": "沿用",
+    "V6": "沿用",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_frb100.row1.thigh",
+   "item_id_coarse": "occ.frontal_full.row1.lowerbody",
+   "scenario": "frontal_frb100",
+   "dummy": "row1",
+   "region": "thigh",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V1": {
+     "max": 2.0,
+     "coverage": 88,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "大腿",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V2": {
+     "max": 2.0,
+     "coverage": 84,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "大腿",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V3": {
+     "max": 2.0,
+     "coverage": 124,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "大腿",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V4": {
+     "max": 2.0,
+     "coverage": 106,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "大腿",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V5": {
+     "max": 2.0,
+     "coverage": 101,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "大腿",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V6": {
+     "max": 2.0,
+     "coverage": 53,
+     "raw_test": "正面100%重叠刚性壁障碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "大腿",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V7": {
+     "max": 2.0,
+     "coverage": 13,
+     "raw_test": "正面100%重叠刚性壁障碰撞",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "大腿",
+     "sigma": {
+      "speed_kmh": 55,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-50th"
+     }
+    }
+   },
+   "evolution": {
+    "V1": "基线(首版)",
+    "V2": "沿用",
+    "V3": "沿用",
+    "V4": "沿用",
+    "V5": "沿用",
+    "V6": "沿用",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_frb100.row2_adult.abdomen_pen",
+   "item_id_coarse": "occ.frontal_full.row2_adult.abdomen_pen",
+   "scenario": "frontal_frb100",
+   "dummy": "row2_adult",
+   "region": "abdomen_pen",
+   "role": "penalty",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V4"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V4": {
+     "max": 0.0,
+     "coverage": 1,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "第二排女性假人得分",
+     "raw_region": "腹部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V4": "配置/工况驱动罚分项"
+   },
+   "notes": [
+    "G4｜实测得分 -1.0/-0.5 为负，满分 0.0，不满足 y=score/max∈[0,1]"
+   ]
+  },
+  {
+   "item_id": "occ.frontal_frb100.row2_adult.chest",
+   "item_id_coarse": "occ.frontal_full.row2_adult.torso",
+   "scenario": "frontal_frb100",
+   "dummy": "row2_adult",
+   "region": "chest",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": false,
+   "versions": {
+    "V3": {
+     "max": 1.0,
+     "coverage": 124,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V4": {
+     "max": 1.0,
+     "coverage": 106,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V5": {
+     "max": 2.0,
+     "coverage": 101,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V6": {
+     "max": 2.0,
+     "coverage": 52,
+     "raw_test": "正面100%重叠刚性壁障碰撞试验",
+     "raw_dummy": "第二排女性假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V7": {
+     "max": 2.0,
+     "coverage": 13,
+     "raw_test": "正面100%重叠刚性壁障碰撞",
+     "raw_dummy": "第二排女性假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 55,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V3": "权重重标定 满分 2.0→1.0",
+    "V4": "沿用",
+    "V5": "权重重标定 满分 1.0→2.0",
+    "V6": "假人拆分-女性(承继 row2g)",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_frb100.row2_adult.head",
+   "item_id_coarse": "occ.frontal_full.row2_adult.headneck",
+   "scenario": "frontal_frb100",
+   "dummy": "row2_adult",
+   "region": "head",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": false,
+   "versions": {
+    "V3": {
+     "max": 0.8,
+     "coverage": 121,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V4": {
+     "max": 0.8,
+     "coverage": 100,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V5": {
+     "max": 1.6,
+     "coverage": 94,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V6": {
+     "max": 1.6,
+     "coverage": 52,
+     "raw_test": "正面100%重叠刚性壁障碰撞试验",
+     "raw_dummy": "第二排女性假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V7": {
+     "max": 1.6,
+     "coverage": 13,
+     "raw_test": "正面100%重叠刚性壁障碰撞",
+     "raw_dummy": "第二排女性假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 55,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V3": "沿用(主报告形式)",
+    "V4": "沿用(主报告形式)",
+    "V5": "沿用(主报告形式)",
+    "V6": "假人拆分-女性(承继 row2g)",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_frb100.row2_adult.headneck",
+   "item_id_coarse": "occ.frontal_full.row2_adult.headneck",
+   "scenario": "frontal_frb100",
+   "dummy": "row2_adult",
+   "region": "headneck",
+   "role": "target",
+   "reporting_variant_of": [
+    "head",
+    "neck"
+   ],
+   "topology_excluded": true,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V4",
+    "V5"
+   ],
+   "max_constant_across_versions": false,
+   "versions": {
+    "V4": {
+     "max": 1.0,
+     "coverage": 6,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "头颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V5": {
+     "max": 2.0,
+     "coverage": 7,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "头颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V4": "版本内报告变体·可加和归一",
+    "V5": "版本内报告变体·可加和归一"
+   },
+   "notes": [
+    "G1｜保留：0.8+0.2=1.0 守恒，6 台采用合并报告形式",
+    "G1｜保留 6 台（满分2.0，1.6+0.4守恒）；满分1.6 的 1 台剔除",
+    "报告变体：V4/V5 版本内与 head+neck 并存，满分严格可加；不计入拓扑比较"
+   ]
+  },
+  {
+   "item_id": "occ.frontal_frb100.row2_adult.neck",
+   "item_id_coarse": "occ.frontal_full.row2_adult.headneck",
+   "scenario": "frontal_frb100",
+   "dummy": "row2_adult",
+   "region": "neck",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": false,
+   "versions": {
+    "V3": {
+     "max": 0.2,
+     "coverage": 122,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V4": {
+     "max": 0.2,
+     "coverage": 100,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V5": {
+     "max": 0.4,
+     "coverage": 94,
+     "raw_test": "完全正面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V6": {
+     "max": 0.4,
+     "coverage": 52,
+     "raw_test": "正面100%重叠刚性壁障碰撞试验",
+     "raw_dummy": "第二排女性假人得分",
+     "raw_region": "颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V7": {
+     "max": 0.4,
+     "coverage": 13,
+     "raw_test": "正面100%重叠刚性壁障碰撞",
+     "raw_dummy": "第二排女性假人得分",
+     "raw_region": "颈部",
+     "sigma": {
+      "speed_kmh": 55,
+      "barrier": "RB-FIXED",
+      "dummy": "HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V3": "沿用(主报告形式)",
+    "V4": "沿用(主报告形式)",
+    "V5": "沿用(主报告形式)",
+    "V6": "假人拆分-女性(承继 row2g)",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_frb100.row2_child.chest",
+   "item_id_coarse": "occ.frontal_full.row2_child.torso",
+   "scenario": "frontal_frb100",
+   "dummy": "row2_child",
+   "region": "chest",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 1.0,
+     "coverage": 52,
+     "raw_test": "正面100%重叠刚性壁障碰撞试验",
+     "raw_dummy": "第二排儿童假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "Q3"
+     }
+    },
+    "V7": {
+     "max": 1.0,
+     "coverage": 13,
+     "raw_test": "正面100%重叠刚性壁障碰撞",
+     "raw_dummy": "第二排儿童假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 55,
+      "barrier": "RB-FIXED",
+      "dummy": "Q3"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "假人拆分-儿童(全新对象)",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_frb100.row2_child.head",
+   "item_id_coarse": "occ.frontal_full.row2_child.headneck",
+   "scenario": "frontal_frb100",
+   "dummy": "row2_child",
+   "region": "head",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 2.0,
+     "coverage": 52,
+     "raw_test": "正面100%重叠刚性壁障碰撞试验",
+     "raw_dummy": "第二排儿童假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "Q3"
+     }
+    },
+    "V7": {
+     "max": 2.0,
+     "coverage": 13,
+     "raw_test": "正面100%重叠刚性壁障碰撞",
+     "raw_dummy": "第二排儿童假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 55,
+      "barrier": "RB-FIXED",
+      "dummy": "Q3"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "假人拆分-儿童(全新对象)",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_frb100.row2_child.neck",
+   "item_id_coarse": "occ.frontal_full.row2_child.headneck",
+   "scenario": "frontal_frb100",
+   "dummy": "row2_child",
+   "region": "neck",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 1.0,
+     "coverage": 52,
+     "raw_test": "正面100%重叠刚性壁障碰撞试验",
+     "raw_dummy": "第二排儿童假人得分",
+     "raw_region": "颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "RB-FIXED",
+      "dummy": "Q3"
+     }
+    },
+    "V7": {
+     "max": 1.0,
+     "coverage": 13,
+     "raw_test": "正面100%重叠刚性壁障碰撞",
+     "raw_dummy": "第二排儿童假人得分",
+     "raw_region": "颈部",
+     "sigma": {
+      "speed_kmh": 55,
+      "barrier": "RB-FIXED",
+      "dummy": "Q3"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "假人拆分-儿童(全新对象)",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_mpdb50.row1.chest",
+   "item_id_coarse": "occ.frontal_offset.row1.torso",
+   "scenario": "frontal_mpdb50",
+   "dummy": "row1",
+   "region": "chest",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V7": {
+     "max": 4.0,
+     "coverage": 13,
+     "raw_test": "正面50%重叠移动渐进变形壁障碰撞",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "THOR-50th+HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V7": "工况替换(取代 odb40)"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_mpdb50.row1.chestabd",
+   "item_id_coarse": "occ.frontal_offset.row1.torso",
+   "scenario": "frontal_mpdb50",
+   "dummy": "row1",
+   "region": "chestabd",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V6"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 4.0,
+     "coverage": 53,
+     "raw_test": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸腹部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "THOR-50th+HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "工况替换(取代 odb40)"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_mpdb50.row1.headneck",
+   "item_id_coarse": "occ.frontal_offset.row1.headneck",
+   "scenario": "frontal_mpdb50",
+   "dummy": "row1",
+   "region": "headneck",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 4.0,
+     "coverage": 53,
+     "raw_test": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "THOR-50th+HIII-5th"
+     }
+    },
+    "V7": {
+     "max": 4.0,
+     "coverage": 13,
+     "raw_test": "正面50%重叠移动渐进变形壁障碰撞",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "THOR-50th+HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "工况替换(取代 odb40)",
+    "V7": "沿用"
+   },
+   "notes": [
+    "该工况官方粒度即为头颈部合并，非报告变体"
+   ]
+  },
+  {
+   "item_id": "occ.frontal_mpdb50.row1.kneethighpelvis",
+   "item_id_coarse": "occ.frontal_offset.row1.lowerbody",
+   "scenario": "frontal_mpdb50",
+   "dummy": "row1",
+   "region": "kneethighpelvis",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V7": {
+     "max": 4.0,
+     "coverage": 13,
+     "raw_test": "正面50%重叠移动渐进变形壁障碰撞",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "膝盖、大腿、骨盆",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "THOR-50th+HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V7": "工况替换(取代 odb40)"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_mpdb50.row1.legfoot",
+   "item_id_coarse": "occ.frontal_offset.row1.lowerlimb",
+   "scenario": "frontal_mpdb50",
+   "dummy": "row1",
+   "region": "legfoot",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V6"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 4.0,
+     "coverage": 53,
+     "raw_test": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "小腿脚部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "THOR-50th+HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "工况替换(取代 odb40)"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_mpdb50.row1.legfootankle",
+   "item_id_coarse": "occ.frontal_offset.row1.lowerlimb",
+   "scenario": "frontal_mpdb50",
+   "dummy": "row1",
+   "region": "legfootankle",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V7": {
+     "max": 4.0,
+     "coverage": 13,
+     "raw_test": "正面50%重叠移动渐进变形壁障碰撞",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "小腿、脚及脚踝",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "THOR-50th+HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V7": "工况替换(取代 odb40)"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_mpdb50.row1.thighpelvis",
+   "item_id_coarse": "occ.frontal_offset.row1.lowerbody",
+   "scenario": "frontal_mpdb50",
+   "dummy": "row1",
+   "region": "thighpelvis",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V6"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 4.0,
+     "coverage": 53,
+     "raw_test": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "大腿骨盆",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "THOR-50th+HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "工况替换(取代 odb40)"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_mpdb50.row2_adult.chest",
+   "item_id_coarse": "occ.frontal_offset.row2_adult.torso",
+   "scenario": "frontal_mpdb50",
+   "dummy": "row2_adult",
+   "region": "chest",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V7": {
+     "max": 2.0,
+     "coverage": 13,
+     "raw_test": "正面50%重叠移动渐进变形壁障碰撞",
+     "raw_dummy": "第二排女性假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V7": "工况替换(取代 odb40)"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_mpdb50.row2_adult.chestabd",
+   "item_id_coarse": "occ.frontal_offset.row2_adult.torso",
+   "scenario": "frontal_mpdb50",
+   "dummy": "row2_adult",
+   "region": "chestabd",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V6"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 2.0,
+     "coverage": 52,
+     "raw_test": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+     "raw_dummy": "第二排女性假人得分",
+     "raw_region": "胸腹部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "工况替换(取代 odb40)"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_mpdb50.row2_adult.headneck",
+   "item_id_coarse": "occ.frontal_offset.row2_adult.headneck",
+   "scenario": "frontal_mpdb50",
+   "dummy": "row2_adult",
+   "region": "headneck",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 2.0,
+     "coverage": 52,
+     "raw_test": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+     "raw_dummy": "第二排女性假人得分",
+     "raw_region": "头颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V7": {
+     "max": 2.0,
+     "coverage": 13,
+     "raw_test": "正面50%重叠移动渐进变形壁障碰撞",
+     "raw_dummy": "第二排女性假人得分",
+     "raw_region": "头颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "工况替换(取代 odb40)",
+    "V7": "沿用"
+   },
+   "notes": [
+    "该工况官方粒度即为头颈部合并，非报告变体"
+   ]
+  },
+  {
+   "item_id": "occ.frontal_mpdb50.row2_child.chest",
+   "item_id_coarse": "occ.frontal_offset.row2_child.torso",
+   "scenario": "frontal_mpdb50",
+   "dummy": "row2_child",
+   "region": "chest",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 1.0,
+     "coverage": 52,
+     "raw_test": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+     "raw_dummy": "第二排儿童假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "Q10"
+     }
+    },
+    "V7": {
+     "max": 1.0,
+     "coverage": 13,
+     "raw_test": "正面50%重叠移动渐进变形壁障碰撞",
+     "raw_dummy": "第二排儿童假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "Q10"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "工况替换(取代 odb40)",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_mpdb50.row2_child.head",
+   "item_id_coarse": "occ.frontal_offset.row2_child.headneck",
+   "scenario": "frontal_mpdb50",
+   "dummy": "row2_child",
+   "region": "head",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 2.0,
+     "coverage": 52,
+     "raw_test": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+     "raw_dummy": "第二排儿童假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "Q10"
+     }
+    },
+    "V7": {
+     "max": 2.0,
+     "coverage": 13,
+     "raw_test": "正面50%重叠移动渐进变形壁障碰撞",
+     "raw_dummy": "第二排儿童假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "Q10"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "工况替换(取代 odb40)",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_mpdb50.row2_child.neck",
+   "item_id_coarse": "occ.frontal_offset.row2_child.headneck",
+   "scenario": "frontal_mpdb50",
+   "dummy": "row2_child",
+   "region": "neck",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 1.0,
+     "coverage": 52,
+     "raw_test": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+     "raw_dummy": "第二排儿童假人得分",
+     "raw_region": "颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "Q10"
+     }
+    },
+    "V7": {
+     "max": 1.0,
+     "coverage": 13,
+     "raw_test": "正面50%重叠移动渐进变形壁障碰撞",
+     "raw_dummy": "第二排儿童假人得分",
+     "raw_region": "颈部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "MPDB",
+      "dummy": "Q10"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "工况替换(取代 odb40)",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_odb40.row1.chest",
+   "item_id_coarse": "occ.frontal_offset.row1.torso",
+   "scenario": "frontal_odb40",
+   "dummy": "row1",
+   "region": "chest",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V1": {
+     "max": 4.0,
+     "coverage": 88,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 56,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V2": {
+     "max": 4.0,
+     "coverage": 84,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 56,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V3": {
+     "max": 4.0,
+     "coverage": 124,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V4": {
+     "max": 4.0,
+     "coverage": 106,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V5": {
+     "max": 4.0,
+     "coverage": 102,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    }
+   },
+   "evolution": {
+    "V1": "基线(首版)",
+    "V2": "沿用",
+    "V3": "沿用",
+    "V4": "沿用",
+    "V5": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_odb40.row1.headneck",
+   "item_id_coarse": "occ.frontal_offset.row1.headneck",
+   "scenario": "frontal_odb40",
+   "dummy": "row1",
+   "region": "headneck",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V1": {
+     "max": 4.0,
+     "coverage": 88,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头颈部",
+     "sigma": {
+      "speed_kmh": 56,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V2": {
+     "max": 4.0,
+     "coverage": 84,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头颈部",
+     "sigma": {
+      "speed_kmh": 56,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V3": {
+     "max": 4.0,
+     "coverage": 124,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头颈部",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V4": {
+     "max": 4.0,
+     "coverage": 106,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头颈部",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V5": {
+     "max": 4.0,
+     "coverage": 102,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头颈部",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    }
+   },
+   "evolution": {
+    "V1": "基线(首版)",
+    "V2": "沿用",
+    "V3": "沿用",
+    "V4": "沿用",
+    "V5": "沿用"
+   },
+   "notes": [
+    "该工况官方粒度即为头颈部合并，非报告变体"
+   ]
+  },
+  {
+   "item_id": "occ.frontal_odb40.row1.leg",
+   "item_id_coarse": "occ.frontal_offset.row1.lowerlimb",
+   "scenario": "frontal_odb40",
+   "dummy": "row1",
+   "region": "leg",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V1": {
+     "max": 4.0,
+     "coverage": 88,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "小腿",
+     "sigma": {
+      "speed_kmh": 56,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V2": {
+     "max": 4.0,
+     "coverage": 83,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "小腿",
+     "sigma": {
+      "speed_kmh": 56,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V3": {
+     "max": 4.0,
+     "coverage": 124,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "小腿",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V4": {
+     "max": 4.0,
+     "coverage": 106,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "小腿",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V5": {
+     "max": 4.0,
+     "coverage": 102,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "小腿",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    }
+   },
+   "evolution": {
+    "V1": "基线(首版)",
+    "V2": "沿用",
+    "V3": "沿用",
+    "V4": "沿用",
+    "V5": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_odb40.row1.thigh",
+   "item_id_coarse": "occ.frontal_offset.row1.lowerbody",
+   "scenario": "frontal_odb40",
+   "dummy": "row1",
+   "region": "thigh",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V1": {
+     "max": 4.0,
+     "coverage": 88,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "大腿",
+     "sigma": {
+      "speed_kmh": 56,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V2": {
+     "max": 4.0,
+     "coverage": 83,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "大腿",
+     "sigma": {
+      "speed_kmh": 56,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V3": {
+     "max": 4.0,
+     "coverage": 124,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "大腿",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V4": {
+     "max": 4.0,
+     "coverage": 106,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "大腿",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    },
+    "V5": {
+     "max": 4.0,
+     "coverage": 102,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "大腿",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-50th"
+     }
+    }
+   },
+   "evolution": {
+    "V1": "基线(首版)",
+    "V2": "沿用",
+    "V3": "沿用",
+    "V4": "沿用",
+    "V5": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_odb40.row2_adult.abdomen_pen",
+   "item_id_coarse": "occ.frontal_offset.row2_adult.abdomen_pen",
+   "scenario": "frontal_odb40",
+   "dummy": "row2_adult",
+   "region": "abdomen_pen",
+   "role": "penalty",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V4"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V4": {
+     "max": 0.5,
+     "coverage": 3,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "第二排女性假人得分",
+     "raw_region": "腹部",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V4": "配置/工况驱动罚分项"
+   },
+   "notes": [
+    "G4｜实测得分 -1.0/-0.5 为负，满分 0.0，不满足 y=score/max∈[0,1]"
+   ]
+  },
+  {
+   "item_id": "occ.frontal_odb40.row2_adult.chest",
+   "item_id_coarse": "occ.frontal_offset.row2_adult.torso",
+   "scenario": "frontal_odb40",
+   "dummy": "row2_adult",
+   "region": "chest",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V3",
+    "V4",
+    "V5"
+   ],
+   "max_constant_across_versions": false,
+   "versions": {
+    "V3": {
+     "max": 1.0,
+     "coverage": 124,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V4": {
+     "max": 1.0,
+     "coverage": 106,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V5": {
+     "max": 2.0,
+     "coverage": 102,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V3": "权重重标定 满分 2.0→1.0",
+    "V4": "沿用",
+    "V5": "权重重标定 满分 1.0→2.0"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.frontal_odb40.row2_adult.headneck",
+   "item_id_coarse": "occ.frontal_offset.row2_adult.headneck",
+   "scenario": "frontal_odb40",
+   "dummy": "row2_adult",
+   "region": "headneck",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V3",
+    "V4",
+    "V5"
+   ],
+   "max_constant_across_versions": false,
+   "versions": {
+    "V3": {
+     "max": 1.0,
+     "coverage": 124,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "头颈部",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V4": {
+     "max": 1.0,
+     "coverage": 106,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "头颈部",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-5th"
+     }
+    },
+    "V5": {
+     "max": 2.0,
+     "coverage": 102,
+     "raw_test": "正面40%碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "头颈部",
+     "sigma": {
+      "speed_kmh": 64,
+      "barrier": "ODB",
+      "dummy": "HIII-5th"
+     }
+    }
+   },
+   "evolution": {
+    "V3": "权重重标定 满分 2.0→1.0",
+    "V4": "沿用",
+    "V5": "权重重标定 满分 1.0→2.0"
+   },
+   "notes": [
+    "该工况官方粒度即为头颈部合并，非报告变体"
+   ]
+  },
+  {
+   "item_id": "occ.side_mdb.row1.abdomen",
+   "item_id_coarse": "occ.side_mdb.row1.torso",
+   "scenario": "side_mdb",
+   "dummy": "row1",
+   "region": "abdomen",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V1": {
+     "max": 4.0,
+     "coverage": 88,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "腹部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "EuroSID-II"
+     }
+    },
+    "V2": {
+     "max": 4.0,
+     "coverage": 84,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "腹部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "EuroSID-II"
+     }
+    },
+    "V3": {
+     "max": 4.0,
+     "coverage": 124,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "腹部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "EuroSID-II"
+     }
+    },
+    "V4": {
+     "max": 4.0,
+     "coverage": 106,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "腹部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "EuroSID-II"
+     }
+    },
+    "V5": {
+     "max": 4.0,
+     "coverage": 102,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "腹部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "WorldSID-50th"
+     }
+    },
+    "V6": {
+     "max": 4.0,
+     "coverage": 18,
+     "raw_test": "可变形移动壁障侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "腹部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "WorldSID-50th"
+     }
+    },
+    "V7": {
+     "max": 4.0,
+     "coverage": 14,
+     "raw_test": "可变形移动壁障侧面碰撞",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "腹部",
+     "sigma": {
+      "speed_kmh": 60,
+      "barrier": "SC-MDB",
+      "dummy": "WorldSID-50th"
+     }
+    }
+   },
+   "evolution": {
+    "V1": "基线(首版)",
+    "V2": "沿用",
+    "V3": "沿用",
+    "V4": "沿用",
+    "V5": "沿用",
+    "V6": "沿用",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.side_mdb.row1.chest",
+   "item_id_coarse": "occ.side_mdb.row1.torso",
+   "scenario": "side_mdb",
+   "dummy": "row1",
+   "region": "chest",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V1": {
+     "max": 4.0,
+     "coverage": 88,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "EuroSID-II"
+     }
+    },
+    "V2": {
+     "max": 4.0,
+     "coverage": 84,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "EuroSID-II"
+     }
+    },
+    "V3": {
+     "max": 4.0,
+     "coverage": 124,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "EuroSID-II"
+     }
+    },
+    "V4": {
+     "max": 4.0,
+     "coverage": 106,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "EuroSID-II"
+     }
+    },
+    "V5": {
+     "max": 4.0,
+     "coverage": 102,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "WorldSID-50th"
+     }
+    },
+    "V6": {
+     "max": 4.0,
+     "coverage": 18,
+     "raw_test": "可变形移动壁障侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "WorldSID-50th"
+     }
+    },
+    "V7": {
+     "max": 4.0,
+     "coverage": 14,
+     "raw_test": "可变形移动壁障侧面碰撞",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 60,
+      "barrier": "SC-MDB",
+      "dummy": "WorldSID-50th"
+     }
+    }
+   },
+   "evolution": {
+    "V1": "基线(首版)",
+    "V2": "沿用",
+    "V3": "沿用",
+    "V4": "沿用",
+    "V5": "沿用",
+    "V6": "沿用",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.side_mdb.row1.head",
+   "item_id_coarse": "occ.side_mdb.row1.headneck",
+   "scenario": "side_mdb",
+   "dummy": "row1",
+   "region": "head",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V1": {
+     "max": 4.0,
+     "coverage": 88,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "EuroSID-II"
+     }
+    },
+    "V2": {
+     "max": 4.0,
+     "coverage": 84,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "EuroSID-II"
+     }
+    },
+    "V3": {
+     "max": 4.0,
+     "coverage": 124,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "EuroSID-II"
+     }
+    },
+    "V4": {
+     "max": 4.0,
+     "coverage": 106,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "EuroSID-II"
+     }
+    },
+    "V5": {
+     "max": 4.0,
+     "coverage": 102,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "WorldSID-50th"
+     }
+    },
+    "V6": {
+     "max": 4.0,
+     "coverage": 18,
+     "raw_test": "可变形移动壁障侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "WorldSID-50th"
+     }
+    },
+    "V7": {
+     "max": 4.0,
+     "coverage": 14,
+     "raw_test": "可变形移动壁障侧面碰撞",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 60,
+      "barrier": "SC-MDB",
+      "dummy": "WorldSID-50th"
+     }
+    }
+   },
+   "evolution": {
+    "V1": "基线(首版)",
+    "V2": "沿用",
+    "V3": "沿用",
+    "V4": "沿用",
+    "V5": "沿用",
+    "V6": "沿用",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.side_mdb.row1.pelvis",
+   "item_id_coarse": "occ.side_mdb.row1.lowerbody",
+   "scenario": "side_mdb",
+   "dummy": "row1",
+   "region": "pelvis",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V1": {
+     "max": 4.0,
+     "coverage": 88,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "盆骨",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "EuroSID-II"
+     }
+    },
+    "V2": {
+     "max": 4.0,
+     "coverage": 84,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "盆骨",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "EuroSID-II"
+     }
+    },
+    "V3": {
+     "max": 4.0,
+     "coverage": 124,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "盆骨",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "EuroSID-II"
+     }
+    },
+    "V4": {
+     "max": 4.0,
+     "coverage": 106,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "盆骨",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "EuroSID-II"
+     }
+    },
+    "V5": {
+     "max": 4.0,
+     "coverage": 102,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "盆骨",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "WorldSID-50th"
+     }
+    },
+    "V6": {
+     "max": 4.0,
+     "coverage": 18,
+     "raw_test": "可变形移动壁障侧面碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "骨盆",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "WorldSID-50th"
+     }
+    },
+    "V7": {
+     "max": 4.0,
+     "coverage": 14,
+     "raw_test": "可变形移动壁障侧面碰撞",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "骨盆",
+     "sigma": {
+      "speed_kmh": 60,
+      "barrier": "SC-MDB",
+      "dummy": "WorldSID-50th"
+     }
+    }
+   },
+   "evolution": {
+    "V1": "基线(首版)",
+    "V2": "沿用",
+    "V3": "沿用",
+    "V4": "沿用",
+    "V5": "沿用",
+    "V6": "沿用",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.side_mdb.row2_adult.abdomen",
+   "item_id_coarse": "occ.side_mdb.row2_adult.torso",
+   "scenario": "side_mdb",
+   "dummy": "row2_adult",
+   "region": "abdomen",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V5",
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V5": {
+     "max": 1.0,
+     "coverage": 102,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "腹部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "SID-IIs"
+     }
+    },
+    "V6": {
+     "max": 1.0,
+     "coverage": 7,
+     "raw_test": "可变形移动壁障侧面碰撞试验",
+     "raw_dummy": "第二排女性假人得分",
+     "raw_region": "腹部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "SID-IIs"
+     }
+    },
+    "V7": {
+     "max": 1.0,
+     "coverage": 14,
+     "raw_test": "可变形移动壁障侧面碰撞",
+     "raw_dummy": "第二排假人得分",
+     "raw_region": "腹部",
+     "sigma": {
+      "speed_kmh": 60,
+      "barrier": "SC-MDB",
+      "dummy": "SID-IIs"
+     }
+    }
+   },
+   "evolution": {
+    "V5": "沿用",
+    "V6": "假人拆分-女性(承继 row2g)",
+    "V7": "沿用（映射自 V5/V6）"
+   },
+   "notes": [
+    "G6｜V5(102台)/V6(7台)/V7(14台) 满分均 1.0，同为 SID-IIs 侧碰假人"
+   ]
+  },
+  {
+   "item_id": "occ.side_mdb.row2_adult.chest",
+   "item_id_coarse": "occ.side_mdb.row2_adult.torso",
+   "scenario": "side_mdb",
+   "dummy": "row2_adult",
+   "region": "chest",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V5",
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V5": {
+     "max": 1.0,
+     "coverage": 102,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "SID-IIs"
+     }
+    },
+    "V6": {
+     "max": 1.0,
+     "coverage": 7,
+     "raw_test": "可变形移动壁障侧面碰撞试验",
+     "raw_dummy": "第二排女性假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "SID-IIs"
+     }
+    },
+    "V7": {
+     "max": 1.0,
+     "coverage": 14,
+     "raw_test": "可变形移动壁障侧面碰撞",
+     "raw_dummy": "第二排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 60,
+      "barrier": "SC-MDB",
+      "dummy": "SID-IIs"
+     }
+    }
+   },
+   "evolution": {
+    "V5": "沿用",
+    "V6": "假人拆分-女性(承继 row2g)",
+    "V7": "沿用（映射自 V5/V6）"
+   },
+   "notes": [
+    "G6｜V5(102台)/V6(7台)/V7(14台) 满分均 1.0，同为 SID-IIs 侧碰假人"
+   ]
+  },
+  {
+   "item_id": "occ.side_mdb.row2_adult.head",
+   "item_id_coarse": "occ.side_mdb.row2_adult.headneck",
+   "scenario": "side_mdb",
+   "dummy": "row2_adult",
+   "region": "head",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V3": {
+     "max": 1.0,
+     "coverage": 124,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "SID-IIs"
+     }
+    },
+    "V4": {
+     "max": 1.0,
+     "coverage": 106,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "SID-IIs"
+     }
+    },
+    "V5": {
+     "max": 1.0,
+     "coverage": 102,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "SID-IIs"
+     }
+    },
+    "V6": {
+     "max": 1.0,
+     "coverage": 7,
+     "raw_test": "可变形移动壁障侧面碰撞试验",
+     "raw_dummy": "第二排女性假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "SID-IIs"
+     }
+    },
+    "V7": {
+     "max": 1.0,
+     "coverage": 14,
+     "raw_test": "可变形移动壁障侧面碰撞",
+     "raw_dummy": "第二排假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 60,
+      "barrier": "SC-MDB",
+      "dummy": "SID-IIs"
+     }
+    }
+   },
+   "evolution": {
+    "V3": "沿用",
+    "V4": "沿用",
+    "V5": "沿用",
+    "V6": "假人拆分-女性(承继 row2g)",
+    "V7": "沿用（映射自 V5/V6）"
+   },
+   "notes": [
+    "G6｜V5(102台)/V6(7台)/V7(14台) 满分均 1.0，同为 SID-IIs 侧碰假人"
+   ]
+  },
+  {
+   "item_id": "occ.side_mdb.row2_adult.pelvis",
+   "item_id_coarse": "occ.side_mdb.row2_adult.lowerbody",
+   "scenario": "side_mdb",
+   "dummy": "row2_adult",
+   "region": "pelvis",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V3": {
+     "max": 1.0,
+     "coverage": 124,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "盆骨",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "SID-IIs"
+     }
+    },
+    "V4": {
+     "max": 1.0,
+     "coverage": 106,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "盆骨",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "SID-IIs"
+     }
+    },
+    "V5": {
+     "max": 1.0,
+     "coverage": 102,
+     "raw_test": "侧面碰撞试验",
+     "raw_dummy": "第二排（后排）假人得分",
+     "raw_region": "盆骨",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "SID-IIs"
+     }
+    },
+    "V6": {
+     "max": 1.0,
+     "coverage": 7,
+     "raw_test": "可变形移动壁障侧面碰撞试验",
+     "raw_dummy": "第二排女性假人得分",
+     "raw_region": "骨盆",
+     "sigma": {
+      "speed_kmh": 50,
+      "barrier": "AE-MDB",
+      "dummy": "SID-IIs"
+     }
+    },
+    "V7": {
+     "max": 1.0,
+     "coverage": 14,
+     "raw_test": "可变形移动壁障侧面碰撞",
+     "raw_dummy": "第二排假人得分",
+     "raw_region": "骨盆",
+     "sigma": {
+      "speed_kmh": 60,
+      "barrier": "SC-MDB",
+      "dummy": "SID-IIs"
+     }
+    }
+   },
+   "evolution": {
+    "V3": "沿用",
+    "V4": "沿用",
+    "V5": "沿用",
+    "V6": "假人拆分-女性(承继 row2g)",
+    "V7": "沿用（映射自 V5/V6）"
+   },
+   "notes": [
+    "G6｜V5(102台)/V6(7台)/V7(14台) 满分均 1.0，同为 SID-IIs 侧碰假人"
+   ]
+  },
+  {
+   "item_id": "occ.side_pole.row1.abdomen",
+   "item_id_coarse": "occ.side_pole.row1.torso",
+   "scenario": "side_pole",
+   "dummy": "row1",
+   "region": "abdomen",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 4.0,
+     "coverage": 35,
+     "raw_test": "侧面柱碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "腹部",
+     "sigma": {
+      "speed_kmh": 32,
+      "barrier": "RIGID-POLE",
+      "dummy": "WorldSID-50th"
+     }
+    },
+    "V7": {
+     "max": 4.0,
+     "coverage": 13,
+     "raw_test": "侧面柱碰撞",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "腹部",
+     "sigma": {
+      "speed_kmh": 32,
+      "barrier": "RIGID-POLE",
+      "dummy": "WorldSID-50th"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "新增工况",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.side_pole.row1.chest",
+   "item_id_coarse": "occ.side_pole.row1.torso",
+   "scenario": "side_pole",
+   "dummy": "row1",
+   "region": "chest",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 4.0,
+     "coverage": 35,
+     "raw_test": "侧面柱碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 32,
+      "barrier": "RIGID-POLE",
+      "dummy": "WorldSID-50th"
+     }
+    },
+    "V7": {
+     "max": 4.0,
+     "coverage": 13,
+     "raw_test": "侧面柱碰撞",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 32,
+      "barrier": "RIGID-POLE",
+      "dummy": "WorldSID-50th"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "新增工况",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.side_pole.row1.head",
+   "item_id_coarse": "occ.side_pole.row1.headneck",
+   "scenario": "side_pole",
+   "dummy": "row1",
+   "region": "head",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 4.0,
+     "coverage": 35,
+     "raw_test": "侧面柱碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 32,
+      "barrier": "RIGID-POLE",
+      "dummy": "WorldSID-50th"
+     }
+    },
+    "V7": {
+     "max": 4.0,
+     "coverage": 13,
+     "raw_test": "侧面柱碰撞",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 32,
+      "barrier": "RIGID-POLE",
+      "dummy": "WorldSID-50th"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "新增工况",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.side_pole.row1.pelvis",
+   "item_id_coarse": "occ.side_pole.row1.lowerbody",
+   "scenario": "side_pole",
+   "dummy": "row1",
+   "region": "pelvis",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 4.0,
+     "coverage": 35,
+     "raw_test": "侧面柱碰撞试验",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "骨盆",
+     "sigma": {
+      "speed_kmh": 32,
+      "barrier": "RIGID-POLE",
+      "dummy": "WorldSID-50th"
+     }
+    },
+    "V7": {
+     "max": 4.0,
+     "coverage": 13,
+     "raw_test": "侧面柱碰撞",
+     "raw_dummy": "前排假人得分",
+     "raw_region": "骨盆",
+     "sigma": {
+      "speed_kmh": 32,
+      "barrier": "RIGID-POLE",
+      "dummy": "WorldSID-50th"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "新增工况",
+    "V7": "沿用"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.side_pole.row2_child.chest",
+   "item_id_coarse": "occ.side_pole.row2_child.torso",
+   "scenario": "side_pole",
+   "dummy": "row2_child",
+   "region": "chest",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V7": {
+     "max": 1.0,
+     "coverage": 13,
+     "raw_test": "侧面柱碰撞",
+     "raw_dummy": "第二排儿童假人得分",
+     "raw_region": "胸部",
+     "sigma": {
+      "speed_kmh": 32,
+      "barrier": "RIGID-POLE",
+      "dummy": "Q3"
+     }
+    }
+   },
+   "evolution": {
+    "V7": "新增工况"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.side_pole.row2_child.head",
+   "item_id_coarse": "occ.side_pole.row2_child.headneck",
+   "scenario": "side_pole",
+   "dummy": "row2_child",
+   "region": "head",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V7": {
+     "max": 2.0,
+     "coverage": 13,
+     "raw_test": "侧面柱碰撞",
+     "raw_dummy": "第二排儿童假人得分",
+     "raw_region": "头部",
+     "sigma": {
+      "speed_kmh": 32,
+      "barrier": "RIGID-POLE",
+      "dummy": "Q3"
+     }
+    }
+   },
+   "evolution": {
+    "V7": "新增工况"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.side_pole.row2_child.neck",
+   "item_id_coarse": "occ.side_pole.row2_child.headneck",
+   "scenario": "side_pole",
+   "dummy": "row2_child",
+   "region": "neck",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "structure_driven",
+   "present_in": [
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V7": {
+     "max": 1.0,
+     "coverage": 13,
+     "raw_test": "侧面柱碰撞",
+     "raw_dummy": "第二排儿童假人得分",
+     "raw_region": "颈部",
+     "sigma": {
+      "speed_kmh": 32,
+      "barrier": "RIGID-POLE",
+      "dummy": "Q3"
+     }
+    }
+   },
+   "evolution": {
+    "V7": "新增工况"
+   },
+   "notes": []
+  },
+  {
+   "item_id": "occ.whiplash.row1.lowerneck",
+   "item_id_coarse": "occ.whiplash.row1.neck_agg",
+   "scenario": "whiplash",
+   "dummy": "row1",
+   "region": "lowerneck",
+   "role": "aggregation_source",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "component_driven",
+   "present_in": [
+    "V3",
+    "V4",
+    "V5"
+   ],
+   "max_constant_across_versions": false,
+   "versions": {
+    "V3": {
+     "max": 1.0,
+     "coverage": 124,
+     "raw_test": "鞭打试验",
+     "raw_dummy": "子项",
+     "raw_region": "下颈部荷载",
+     "sigma": {
+      "delta_v_kmh": 15.65,
+      "barrier": "SLED-NO-BARRIER",
+      "dummy": "BioRID-II"
+     }
+    },
+    "V4": {
+     "max": 1.0,
+     "coverage": 106,
+     "raw_test": "鞭打试验",
+     "raw_dummy": "子项",
+     "raw_region": "下颈部荷载",
+     "sigma": {
+      "delta_v_kmh": 15.65,
+      "barrier": "SLED-NO-BARRIER",
+      "dummy": "BioRID-II"
+     }
+    },
+    "V5": {
+     "max": 1.5,
+     "coverage": 102,
+     "raw_test": "鞭打试验",
+     "raw_dummy": "子项",
+     "raw_region": "下颈部荷载",
+     "sigma": {
+      "delta_v_kmh": 20.0,
+      "barrier": "SLED-NO-BARRIER",
+      "dummy": "BioRID-II"
+     }
+    }
+   },
+   "evolution": {
+    "V3": "权重重标定 满分 1.5→1.0",
+    "V4": "容器重复·去重后覆盖 106/106",
+    "V5": "权重重标定 满分 1.0→1.5"
+   },
+   "notes": [
+    "G2｜105 台存于兄弟块、1 台两处并存"
+   ]
+  },
+  {
+   "item_id": "occ.whiplash.row1.neckscore",
+   "item_id_coarse": "occ.whiplash.row1.neck_agg",
+   "scenario": "whiplash",
+   "dummy": "row1",
+   "region": "neckscore",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "component_driven",
+   "present_in": [
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": false,
+   "versions": {
+    "V3": {
+     "max": 4.0,
+     "coverage": 124,
+     "derived": "aggregated_from_three_sources",
+     "sigma": {
+      "delta_v_kmh": 15.65,
+      "barrier": "SLED-NO-BARRIER",
+      "dummy": "BioRID-II"
+     }
+    },
+    "V4": {
+     "max": 4.0,
+     "coverage": 106,
+     "derived": "aggregated_from_three_sources",
+     "sigma": {
+      "delta_v_kmh": 15.65,
+      "barrier": "SLED-NO-BARRIER",
+      "dummy": "BioRID-II"
+     }
+    },
+    "V5": {
+     "max": 5.0,
+     "coverage": 102,
+     "derived": "aggregated_from_three_sources",
+     "sigma": {
+      "delta_v_kmh": 20.0,
+      "barrier": "SLED-NO-BARRIER",
+      "dummy": "BioRID-II"
+     }
+    },
+    "V6": {
+     "max": 5.0,
+     "coverage": 44,
+     "raw_test": "低速后碰撞颈部保护试验（鞭打试验）",
+     "raw_dummy": "子项",
+     "raw_region": "前排假人颈部得分",
+     "sigma": {
+      "delta_v_kmh": 20.0,
+      "barrier": "SLED-NO-BARRIER",
+      "dummy": "BioRID-II"
+     }
+    },
+    "V7": {
+     "max": 5.0,
+     "coverage": 13,
+     "raw_test": "低速后碰撞颈部保护（鞭打试验）",
+     "raw_dummy": "子项",
+     "raw_region": "前排假人颈部得分",
+     "sigma": {
+      "delta_v_kmh": 20.0,
+      "barrier": "SLED-NO-BARRIER",
+      "dummy": "BioRID-II"
+     }
+    }
+   },
+   "evolution": {
+    "V3": "聚合自三项生物力学指标",
+    "V4": "聚合自三项生物力学指标",
+    "V5": "聚合自三项生物力学指标",
+    "V6": "数据源粒度损失（规程三组结构未变，可从报告恢复）",
+    "V7": "沿用"
+   },
+   "notes": [
+    "G3｜两种容器合并，覆盖 53/53"
+   ]
+  },
+  {
+   "item_id": "occ.whiplash.row1.nic",
+   "item_id_coarse": "occ.whiplash.row1.neck_agg",
+   "scenario": "whiplash",
+   "dummy": "row1",
+   "region": "nic",
+   "role": "aggregation_source",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "component_driven",
+   "present_in": [
+    "V3",
+    "V4",
+    "V5"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V3": {
+     "max": 2.0,
+     "coverage": 124,
+     "raw_test": "鞭打试验",
+     "raw_dummy": "子项",
+     "raw_region": "NIC",
+     "sigma": {
+      "delta_v_kmh": 15.65,
+      "barrier": "SLED-NO-BARRIER",
+      "dummy": "BioRID-II"
+     }
+    },
+    "V4": {
+     "max": 2.0,
+     "coverage": 106,
+     "raw_test": "鞭打试验",
+     "raw_dummy": "子项",
+     "raw_region": "NIC",
+     "sigma": {
+      "delta_v_kmh": 15.65,
+      "barrier": "SLED-NO-BARRIER",
+      "dummy": "BioRID-II"
+     }
+    },
+    "V5": {
+     "max": 2.0,
+     "coverage": 102,
+     "raw_test": "鞭打试验",
+     "raw_dummy": "子项",
+     "raw_region": "NIC",
+     "sigma": {
+      "delta_v_kmh": 20.0,
+      "barrier": "SLED-NO-BARRIER",
+      "dummy": "BioRID-II"
+     }
+    }
+   },
+   "evolution": {
+    "V3": "沿用",
+    "V4": "容器重复·去重后覆盖 106/106",
+    "V5": "沿用"
+   },
+   "notes": [
+    "G2｜105 台存于兄弟块、1 台两处并存"
+   ]
+  },
+  {
+   "item_id": "occ.whiplash.row1.upperneck",
+   "item_id_coarse": "occ.whiplash.row1.neck_agg",
+   "scenario": "whiplash",
+   "dummy": "row1",
+   "region": "upperneck",
+   "role": "aggregation_source",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "component_driven",
+   "present_in": [
+    "V3",
+    "V4",
+    "V5"
+   ],
+   "max_constant_across_versions": false,
+   "versions": {
+    "V3": {
+     "max": 1.0,
+     "coverage": 124,
+     "raw_test": "鞭打试验",
+     "raw_dummy": "子项",
+     "raw_region": "上颈部荷载",
+     "sigma": {
+      "delta_v_kmh": 15.65,
+      "barrier": "SLED-NO-BARRIER",
+      "dummy": "BioRID-II"
+     }
+    },
+    "V4": {
+     "max": 1.0,
+     "coverage": 106,
+     "raw_test": "鞭打试验",
+     "raw_dummy": "子项",
+     "raw_region": "上颈部荷载",
+     "sigma": {
+      "delta_v_kmh": 15.65,
+      "barrier": "SLED-NO-BARRIER",
+      "dummy": "BioRID-II"
+     }
+    },
+    "V5": {
+     "max": 1.5,
+     "coverage": 102,
+     "raw_test": "鞭打试验",
+     "raw_dummy": "子项",
+     "raw_region": "上颈部荷载",
+     "corrected_from": 2.5,
+     "sigma": {
+      "delta_v_kmh": 20.0,
+      "barrier": "SLED-NO-BARRIER",
+      "dummy": "BioRID-II"
+     }
+    }
+   },
+   "evolution": {
+    "V3": "权重重标定 满分 2.5→1.0",
+    "V4": "容器重复·去重后覆盖 106/106",
+    "V5": "权重重标定 满分 1.0→2.5"
+   },
+   "notes": [
+    "G2｜105 台存于兄弟块、1 台两处并存"
+   ]
+  },
+  {
+   "item_id": "occ.whiplash.row2_adult.neckscore",
+   "item_id_coarse": "occ.whiplash.row2_adult.neck_agg",
+   "scenario": "whiplash",
+   "dummy": "row2_adult",
+   "region": "neckscore",
+   "role": "target",
+   "reporting_variant_of": null,
+   "topology_excluded": false,
+   "observability_class": "component_driven",
+   "present_in": [
+    "V6",
+    "V7"
+   ],
+   "max_constant_across_versions": true,
+   "versions": {
+    "V6": {
+     "max": 2.0,
+     "coverage": 44,
+     "raw_test": "低速后碰撞颈部保护试验（鞭打试验）",
+     "raw_dummy": "子项",
+     "raw_region": "第二排假人颈部得分",
+     "sigma": {
+      "delta_v_kmh": 20.0,
+      "barrier": "SLED-NO-BARRIER",
+      "dummy": "BioRID-II"
+     }
+    },
+    "V7": {
+     "max": 2.0,
+     "coverage": 13,
+     "raw_test": "低速后碰撞颈部保护（鞭打试验）",
+     "raw_dummy": "子项",
+     "raw_region": "第二排假人颈部得分",
+     "sigma": {
+      "delta_v_kmh": 20.0,
+      "barrier": "SLED-NO-BARRIER",
+      "dummy": "BioRID-II"
+     }
+    }
+   },
+   "evolution": {
+    "V6": "数据源粒度损失（规程三组结构未变，可从报告恢复）",
+    "V7": "沿用"
+   },
+   "notes": [
+    "G3｜两种容器合并，覆盖 53/53"
+   ]
+  }
+ ],
+ "excluded": [
+  {
+   "版本": "V1",
+   "试验项": "加分项",
+   "假人组": "子项",
+   "部位": "二排乘员安全带提醒装置",
+   "覆盖": 88,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V1",
+   "试验项": "加分项",
+   "假人组": "子项",
+   "部位": "侧面安全气囊及气帘",
+   "覆盖": 88,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V1",
+   "试验项": "加分项",
+   "假人组": "子项",
+   "部位": "前排乘员安全带提醒装置",
+   "覆盖": 88,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V1",
+   "试验项": "完全正面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "胸部",
+   "覆盖": 89,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V1",
+   "试验项": "完全正面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "头部",
+   "覆盖": 76,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V1",
+   "试验项": "完全正面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "头颈部",
+   "覆盖": 13,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V1",
+   "试验项": "完全正面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "颈部",
+   "覆盖": 77,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V1",
+   "试验项": "正面40%碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "胸部",
+   "覆盖": 88,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V1",
+   "试验项": "正面40%碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "头颈部",
+   "覆盖": 88,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V1",
+   "试验项": "侧面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "腹部",
+   "覆盖": 88,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V1",
+   "试验项": "侧面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "胸部",
+   "覆盖": 88,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V1",
+   "试验项": "侧面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "头部",
+   "覆盖": 88,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V1",
+   "试验项": "侧面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "盆骨",
+   "覆盖": 88,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V1",
+   "试验项": "鞭打试验",
+   "假人组": "子项",
+   "部位": "下颈部荷载",
+   "覆盖": 88,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V1",
+   "试验项": "鞭打试验",
+   "假人组": "子项",
+   "部位": "NIC",
+   "覆盖": 88,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V1",
+   "试验项": "鞭打试验",
+   "假人组": "子项",
+   "部位": "上颈部荷载",
+   "覆盖": 88,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "加分项",
+   "假人组": "子项",
+   "部位": "二排乘员安全带提醒装置",
+   "覆盖": 84,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "加分项",
+   "假人组": "子项",
+   "部位": "侧面安全气囊及气帘",
+   "覆盖": 84,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "加分项",
+   "假人组": "子项",
+   "部位": "前排乘员安全带提醒装置",
+   "覆盖": 84,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "完全正面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "胸部",
+   "覆盖": 85,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "完全正面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "头部",
+   "覆盖": 76,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "完全正面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "头颈部",
+   "覆盖": 7,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "完全正面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "颈部",
+   "覆盖": 77,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "正面40%碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "腹部",
+   "覆盖": 1,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "正面40%碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "胸部",
+   "覆盖": 84,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "正面40%碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "头部",
+   "覆盖": 1,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "正面40%碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "头颈部",
+   "覆盖": 83,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "正面40%碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "小腿",
+   "覆盖": 1,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "正面40%碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "盆骨",
+   "覆盖": 1,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "正面40%碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "大腿",
+   "覆盖": 1,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "侧面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "腹部",
+   "覆盖": 84,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "侧面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "胸部",
+   "覆盖": 84,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "侧面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "头部",
+   "覆盖": 84,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "侧面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "盆骨",
+   "覆盖": 84,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "鞭打试验",
+   "假人组": "子项",
+   "部位": "下颈部荷载",
+   "覆盖": 84,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "鞭打试验",
+   "假人组": "子项",
+   "部位": "NIC",
+   "覆盖": 84,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V2",
+   "试验项": "鞭打试验",
+   "假人组": "子项",
+   "部位": "上颈部荷载",
+   "覆盖": 84,
+   "原因": "规程实证伪数据(剔除)"
+  },
+  {
+   "版本": "V3",
+   "试验项": "完全正面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "头颈部",
+   "覆盖": 1,
+   "原因": "G1｜剔除：满分0.8 不满足 头部0.8+颈部0.2=1.0"
+  },
+  {
+   "版本": "V3",
+   "试验项": "侧面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "腹部",
+   "覆盖": 124,
+   "原因": "G7｜剔除：2012/2015 规程「第二排女性假人最高 2 分，评分部位为假人的头部、骨盆」，胸部与腹部非评分部位（前排16+后排2=18 守恒）"
+  },
+  {
+   "版本": "V3",
+   "试验项": "侧面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "胸部",
+   "覆盖": 124,
+   "原因": "G7｜剔除：2012/2015 规程「第二排女性假人最高 2 分，评分部位为假人的头部、骨盆」，胸部与腹部非评分部位（前排16+后排2=18 守恒）"
+  },
+  {
+   "版本": "V4",
+   "试验项": "侧面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "腹部",
+   "覆盖": 106,
+   "原因": "G7｜剔除：2012/2015 规程「第二排女性假人最高 2 分，评分部位为假人的头部、骨盆」，胸部与腹部非评分部位（前排16+后排2=18 守恒）"
+  },
+  {
+   "版本": "V4",
+   "试验项": "侧面碰撞试验",
+   "假人组": "第二排（后排）假人得分",
+   "部位": "胸部",
+   "覆盖": 106,
+   "原因": "G7｜剔除：2012/2015 规程「第二排女性假人最高 2 分，评分部位为假人的头部、骨盆」，胸部与腹部非评分部位（前排16+后排2=18 守恒）"
+  },
+  {
+   "版本": "V7",
+   "试验项": "乘员保护",
+   "假人组": "前排假人得分",
+   "部位": "大腿骨盆",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "乘员保护",
+   "假人组": "前排假人得分",
+   "部位": "头颈部",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "乘员保护",
+   "假人组": "前排假人得分",
+   "部位": "小腿脚部",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "乘员保护",
+   "假人组": "前排假人得分",
+   "部位": "胸腹部",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "乘员保护",
+   "假人组": "第二排儿童假人得分",
+   "部位": "头部",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "乘员保护",
+   "假人组": "第二排儿童假人得分",
+   "部位": "腿型试验",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "乘员保护",
+   "假人组": "第二排女性假人得分",
+   "部位": "头部",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "乘员保护",
+   "假人组": "第二排女性假人得分",
+   "部位": "胸部",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "乘员保护",
+   "假人组": "第二排女性假人得分",
+   "部位": "腹部",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "乘员保护",
+   "假人组": "第二排女性假人得分",
+   "部位": "骨盆",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "低速后碰撞颈部保护试验（鞭打试验）",
+   "假人组": "第二排儿童假人得分",
+   "部位": "腿型试验",
+   "覆盖": 1,
+   "原因": "跨模块污染(VRU项)(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "可变形移动壁障侧面碰撞试验",
+   "假人组": "第二排儿童假人得分",
+   "部位": "腿型试验",
+   "覆盖": 1,
+   "原因": "跨模块污染(VRU项)(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面100%重叠刚性壁障碰撞试验",
+   "假人组": "第二排儿童假人得分",
+   "部位": "腿型试验",
+   "覆盖": 1,
+   "原因": "跨模块污染(VRU项)(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+   "假人组": "第二排儿童假人得分",
+   "部位": "腿型试验",
+   "覆盖": 1,
+   "原因": "跨模块污染(VRU项)(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "行人保护",
+   "假人组": "前排假人得分",
+   "部位": "大腿",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "行人保护",
+   "假人组": "前排假人得分",
+   "部位": "头部",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "行人保护",
+   "假人组": "前排假人得分",
+   "部位": "小腿",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "行人保护",
+   "假人组": "前排假人得分",
+   "部位": "胸部",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "行人保护",
+   "假人组": "前排假人得分",
+   "部位": "颈部",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "行人保护",
+   "假人组": "第二排儿童假人得分",
+   "部位": "头部",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "行人保护",
+   "假人组": "第二排儿童假人得分",
+   "部位": "腿型试验",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "行人保护",
+   "假人组": "第二排女性假人得分",
+   "部位": "头部",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "行人保护",
+   "假人组": "第二排女性假人得分",
+   "部位": "胸部",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "行人保护",
+   "假人组": "第二排女性假人得分",
+   "部位": "腹部",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "行人保护",
+   "假人组": "第二排女性假人得分",
+   "部位": "骨盆",
+   "覆盖": 1,
+   "原因": "模块名误作试验项(剔除/待查)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面100%重叠刚性壁障碰撞试验",
+   "假人组": "前排假人得分",
+   "部位": "胸部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面100%重叠刚性壁障碰撞试验",
+   "假人组": "前排假人得分",
+   "部位": "头部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面100%重叠刚性壁障碰撞试验",
+   "假人组": "前排假人得分",
+   "部位": "小腿",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面100%重叠刚性壁障碰撞试验",
+   "假人组": "前排假人得分",
+   "部位": "颈部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面100%重叠刚性壁障碰撞试验",
+   "假人组": "前排假人得分",
+   "部位": "大腿",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面100%重叠刚性壁障碰撞试验",
+   "假人组": "第二排儿童假人得分",
+   "部位": "头部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面100%重叠刚性壁障碰撞试验",
+   "假人组": "第二排女性假人得分",
+   "部位": "腹部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面100%重叠刚性壁障碰撞试验",
+   "假人组": "第二排女性假人得分",
+   "部位": "胸部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面100%重叠刚性壁障碰撞试验",
+   "假人组": "第二排女性假人得分",
+   "部位": "头部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面100%重叠刚性壁障碰撞试验",
+   "假人组": "第二排女性假人得分",
+   "部位": "骨盆",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+   "假人组": "前排假人得分",
+   "部位": "胸腹部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+   "假人组": "前排假人得分",
+   "部位": "头颈部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+   "假人组": "前排假人得分",
+   "部位": "小腿脚部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+   "假人组": "前排假人得分",
+   "部位": "大腿骨盆",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+   "假人组": "第二排儿童假人得分",
+   "部位": "头部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+   "假人组": "第二排女性假人得分",
+   "部位": "腹部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+   "假人组": "第二排女性假人得分",
+   "部位": "胸部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+   "假人组": "第二排女性假人得分",
+   "部位": "头部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "正面50%重叠移动渐进变形壁障（MPDB）碰撞试验",
+   "假人组": "第二排女性假人得分",
+   "部位": "骨盆",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "可变形移动壁障侧面碰撞试验",
+   "假人组": "前排假人得分",
+   "部位": "腹部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "可变形移动壁障侧面碰撞试验",
+   "假人组": "前排假人得分",
+   "部位": "胸部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "可变形移动壁障侧面碰撞试验",
+   "假人组": "前排假人得分",
+   "部位": "头部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "可变形移动壁障侧面碰撞试验",
+   "假人组": "前排假人得分",
+   "部位": "骨盆",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "可变形移动壁障侧面碰撞试验",
+   "假人组": "第二排儿童假人得分",
+   "部位": "头部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "可变形移动壁障侧面碰撞试验",
+   "假人组": "第二排女性假人得分",
+   "部位": "腹部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "可变形移动壁障侧面碰撞试验",
+   "假人组": "第二排女性假人得分",
+   "部位": "胸部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "可变形移动壁障侧面碰撞试验",
+   "假人组": "第二排女性假人得分",
+   "部位": "头部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "可变形移动壁障侧面碰撞试验",
+   "假人组": "第二排女性假人得分",
+   "部位": "骨盆",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "侧面柱碰撞",
+   "假人组": "第二排女性假人得分",
+   "部位": "胸部",
+   "覆盖": 1,
+   "原因": "G5｜剔除：满分1.6/0.4/2.0 为正面碰撞女性假人签名，误置于柱碰；仅 1 台，该记录另有星级还原异常"
+  },
+  {
+   "版本": "V7",
+   "试验项": "侧面柱碰撞",
+   "假人组": "第二排女性假人得分",
+   "部位": "头部",
+   "覆盖": 1,
+   "原因": "G5｜剔除：满分1.6/0.4/2.0 为正面碰撞女性假人签名，误置于柱碰；仅 1 台，该记录另有星级还原异常"
+  },
+  {
+   "版本": "V7",
+   "试验项": "侧面柱碰撞",
+   "假人组": "第二排女性假人得分",
+   "部位": "颈部",
+   "覆盖": 1,
+   "原因": "G5｜剔除：满分1.6/0.4/2.0 为正面碰撞女性假人签名，误置于柱碰；仅 1 台，该记录另有星级还原异常"
+  },
+  {
+   "版本": "V7",
+   "试验项": "低速后碰撞颈部保护试验（鞭打试验）",
+   "假人组": "前排假人得分",
+   "部位": "前排假人颈部得分",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "低速后碰撞颈部保护试验（鞭打试验）",
+   "假人组": "第二排儿童假人得分",
+   "部位": "头部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "低速后碰撞颈部保护试验（鞭打试验）",
+   "假人组": "第二排女性假人得分",
+   "部位": "腹部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "低速后碰撞颈部保护试验（鞭打试验）",
+   "假人组": "第二排女性假人得分",
+   "部位": "胸部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "低速后碰撞颈部保护试验（鞭打试验）",
+   "假人组": "第二排女性假人得分",
+   "部位": "头部",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  },
+  {
+   "版本": "V7",
+   "试验项": "低速后碰撞颈部保护试验（鞭打试验）",
+   "假人组": "第二排女性假人得分",
+   "部位": "骨盆",
+   "覆盖": 1,
+   "原因": "记录级解析错误(剔除)"
+  }
+ ],
+ "sigma_semantics": {
+  "_doc": "σ =（碰撞速度, 壁障型号, 假人型号），用于判定同一 item_id 跨版本是否 comparable。",
+  "_known_uncaptured": {
+   "_doc": "σ 三维之外、已知但未纳入的测量条件差异。记录在此以免被当作「不存在」。",
+   "side_mdb_impact_point": "撞击点位置由 R 点向后 250mm（V6）改为 200mm（V7）。该变更不改变可比性判定——V6→V7 的 side_mdb 已因速度（50→60）与壁障（AE-MDB→SC-MDB）判为 incomparable。故不扩展 σ 维度，仅登记。",
+   "side_pole_passenger_dummy": "V7 前排乘员位可为 ES-2re 或 WorldSID-50th（规程允许二选一）。本体 row1 不区分驾乘，σ 以驾驶员位为准。位置粒度见 T1 专题。",
+   "side_mdb_nonstruck_dummy": "V6 非撞击侧前排放置 ES-2 假人，规程明载「仅采集数据，暂不评价」，故不产生 item、不入 σ。V7 已取消该假人。"
+  },
+  "value_meaning": {
+   "实际值": "该维度存在且已从规程原文抄录",
+   "N/A-STATIC": "该工况存在但无此维度（静态或虚拟评价无碰撞速度／壁障）",
+   "键不存在": "该工况在该版本不存在"
+  },
+  "comparability_rule": "同一 item_id 在版本 a 与 b 之间 comparable ⟺ 三个维度取值全同。任一维度变更即标 incomparable，不做数值折算。",
+  "source": "全部参数出自规程原文，出处见 src/patch_sigma.py 的逐条注释。"
+ }
+}

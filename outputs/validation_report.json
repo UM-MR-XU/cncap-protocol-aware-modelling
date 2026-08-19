@@ -1,0 +1,37 @@
+{
+ "n_rows": 13060,
+ "total_violations": 0,
+ "checks": [
+  {
+   "id": "INV-1 label_range",
+   "violations": 0,
+   "samples": []
+  },
+  {
+   "id": "INV-2 conservation",
+   "violations": 0,
+   "samples": [],
+   "known_gaps": []
+  },
+  {
+   "id": "INV-3 headneck_sum",
+   "violations": 0,
+   "samples": []
+  },
+  {
+   "id": "INV-4 branch_union",
+   "violations": 0,
+   "n_vehicles": 53,
+   "n_mdb": 18,
+   "n_pole": 35,
+   "both": [],
+   "neither": []
+  },
+  {
+   "id": "INV-5 aggregation",
+   "violations": 0,
+   "samples": [],
+   "note": "仅在聚合分与三项同时存在时可校验；本数据集中两者互斥出现，故通常无可校验样本"
+  }
+ ]
+}

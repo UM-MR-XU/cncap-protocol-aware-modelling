@@ -1,0 +1,3 @@
+﻿fold,test,n,upper_acc,oracle_acc,zero_acc
+F1,V3,124,1.0,0.9032,0.9032
+F2,V4,106,0.9906,0.7358,0.7547

@@ -1,0 +1,20 @@
+Data licence — data/ and outputs/
+=================================
+
+The derivative datasets in data/ and the result snapshots in outputs/ are
+released under the Creative Commons Attribution 4.0 International Licence
+(CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+
+Scope and provenance
+--------------------
+These files are a STRUCTURED DERIVATIVE of assessment results published by the
+protocol authority on its public pages. They are not the raw records.
+
+  * vehicle model names, manufacturer names and source URLs are removed
+  * each record is identified only by an opaque variant_id
+  * the raw scrape and the protocol documents are NOT redistributed here,
+    because their licensing is not ours to grant
+
+Anyone reusing these files should cite the accompanying paper and should obtain
+the underlying assessment results from the protocol authority directly if the
+raw records are required.

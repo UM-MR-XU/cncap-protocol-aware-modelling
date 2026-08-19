@@ -1,0 +1,7 @@
+﻿transition,共有 item,incomparable,comparable,变更维
+V1→V2,13,0,13,—
+V2→V3,13,4,9,speed(4)
+V3→V4,27,0,27,—
+V4→V5,28,8,20,dummy(4)，speed(4)
+V5→V6,17,0,17,—
+V6→V7,32,19,13,barrier(8)，speed(19)

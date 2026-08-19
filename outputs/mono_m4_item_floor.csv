@@ -1,0 +1,38 @@
+﻿细项,跨版本数,五星车得分5%分位序列,单调不减,反例
+occ.frontal_frb100.row1.head,7,V1:1.00 → V2:1.00 → V3:1.00 → V4:1.00 → V5:1.00 → V6:1.00 → V7:1.00,✔,—
+occ.side_mdb.row1.abdomen,7,V1:0.84 → V2:0.90 → V3:0.94 → V4:1.00 → V5:1.00 → V6:1.00 → V7:1.00,✔,—
+occ.side_mdb.row1.head,7,V1:1.00 → V2:1.00 → V3:1.00 → V4:1.00 → V5:1.00 → V6:1.00 → V7:1.00,✔,—
+occ.frontal_frb100.row2_adult.head,5,V3:1.00 → V4:1.00 → V5:1.00 → V6:1.00 → V7:1.00,✔,—
+occ.frontal_frb100.row2_adult.neck,5,V3:0.00 → V4:0.00 → V5:0.04 → V6:0.49 → V7:0.84,✔,—
+occ.frontal_odb40.row2_adult.chest,3,V3:0.06 → V4:0.39 → V5:0.61,✔,—
+occ.frontal_odb40.row2_adult.headneck,3,V3:0.00 → V4:0.00 → V5:0.36,✔,—
+occ.side_mdb.row2_adult.abdomen,3,V5:0.86 → V6:0.87 → V7:1.00,✔,—
+occ.frontal_frb100.row2_child.chest,2,V6:0.10 → V7:0.40,✔,—
+occ.frontal_frb100.row2_child.head,2,V6:0.46 → V7:0.94,✔,—
+occ.frontal_frb100.row2_child.neck,2,V6:0.66 → V7:0.83,✔,—
+occ.frontal_mpdb50.row1.headneck,2,V6:1.00 → V7:1.00,✔,—
+occ.frontal_mpdb50.row2_adult.headneck,2,V6:0.95 → V7:1.00,✔,—
+occ.frontal_mpdb50.row2_child.chest,2,V6:1.00 → V7:1.00,✔,—
+occ.frontal_mpdb50.row2_child.head,2,V6:1.00 → V7:1.00,✔,—
+occ.side_pole.row1.chest,2,V6:0.40 → V7:0.78,✔,—
+occ.side_pole.row1.head,2,V6:1.00 → V7:1.00,✔,—
+occ.side_pole.row1.pelvis,2,V6:1.00 → V7:1.00,✔,—
+occ.whiplash.row1.neckscore,2,V6:0.70 → V7:0.76,✔,—
+occ.whiplash.row2_adult.neckscore,2,V6:0.41 → V7:0.64,✔,—
+occ.frontal_frb100.row1.chest,7,V1:0.43 → V2:0.50 → V3:0.47 → V4:0.62 → V5:0.63 → V6:0.74 → V7:0.71,✘,V2(0.4955) → V3(0.4712)；V6(0.7414) → V7(0.7144)
+occ.frontal_frb100.row1.leg,7,V1:0.29 → V2:0.50 → V3:0.38 → V4:0.56 → V5:0.46 → V6:0.65 → V7:0.42,✘,V2(0.4985) → V3(0.381)；V4(0.561) → V5(0.4642)；V6(0.6508) → V7(0.4233)
+occ.frontal_frb100.row1.neck,7,V1:0.96 → V2:0.98 → V3:1.00 → V4:1.00 → V5:1.00 → V6:1.00 → V7:0.86,✘,V6(1) → V7(0.8608)
+occ.frontal_frb100.row1.thigh,7,V1:0.90 → V2:0.78 → V3:0.96 → V4:1.00 → V5:0.95 → V6:1.00 → V7:1.00,✘,V1(0.8975) → V2(0.7778)；V4(0.999) → V5(0.9474)
+occ.side_mdb.row1.chest,7,V1:0.63 → V2:0.82 → V3:0.82 → V4:1.00 → V5:0.86 → V6:0.99 → V7:1.00,✘,V2(0.8221) → V3(0.821)；V4(1) → V5(0.8613)
+occ.side_mdb.row1.pelvis,7,V1:1.00 → V2:1.00 → V3:1.00 → V4:1.00 → V5:1.00 → V6:1.00 → V7:0.96,✘,V6(1) → V7(0.9636)
+occ.frontal_frb100.row2_adult.chest,5,V3:0.00 → V4:0.32 → V5:0.53 → V6:0.42 → V7:0.56,✘,V5(0.5281) → V6(0.4171)
+occ.frontal_odb40.row1.chest,5,V1:0.77 → V2:0.64 → V3:0.46 → V4:0.68 → V5:0.64,✘,V1(0.7692) → V2(0.6387)；V2(0.6387) → V3(0.462)；V4(0.6833) → V5(0.6387)
+occ.frontal_odb40.row1.headneck,5,V1:1.00 → V2:1.00 → V3:1.00 → V4:1.00 → V5:0.93,✘,V4(1) → V5(0.9318)
+occ.frontal_odb40.row1.leg,5,V1:0.85 → V2:0.76 → V3:0.55 → V4:0.61 → V5:0.58,✘,V1(0.8505) → V2(0.76)；V2(0.76) → V3(0.5515)；V4(0.6148) → V5(0.5798)
+occ.frontal_odb40.row1.thigh,5,V1:1.00 → V2:0.90 → V3:1.00 → V4:1.00 → V5:1.00,✘,V1(1) → V2(0.895)
+occ.side_mdb.row2_adult.head,5,V3:1.00 → V4:1.00 → V5:1.00 → V6:0.75 → V7:0.60,✘,V5(1) → V6(0.75)；V6(0.75) → V7(0.6)
+occ.side_mdb.row2_adult.pelvis,5,V3:0.75 → V4:1.00 → V5:0.64 → V6:0.99 → V7:0.93,✘,V4(1) → V5(0.64)；V6(0.99) → V7(0.926)
+occ.side_mdb.row2_adult.chest,3,V5:0.38 → V6:1.00 → V7:0.72,✘,V6(1) → V7(0.7208)
+occ.child_static.total,2,V6:0.82 → V7:0.74,✘,V6(0.824) → V7(0.7381)
+occ.frontal_mpdb50.row2_child.neck,2,V6:0.65 → V7:0.49,✘,V6(0.6524) → V7(0.4904)
+occ.side_pole.row1.abdomen,2,V6:1.00 → V7:0.96,✘,V6(1) → V7(0.9567)

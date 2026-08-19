@@ -1,0 +1,6 @@
+﻿fold,train,test,共有 item,comparable,incomparable,incomparable 率,变更维
+F1,V1+V2,V3,13,9,4,0.308,speed(4)
+F2,V1+V2+V3,V4,27,27,0,0.0,—
+F3,V1+V2+V3+V4,V5,28,20,8,0.286,dummy(4)，speed(4)
+F4,V1+V2+V3+V4+V5,V6,17,17,0,0.0,—
+F5,V1+V2+V3+V4+V5+V6,V7,32,13,19,0.594,barrier(8)，speed(19)

@@ -1,0 +1,4 @@
+﻿可观测性,n,MAE,skill_MAE,满分率
+config_gated,109,0.1353,-0.5003,0.716
+structure_driven,10825,0.0876,0.3588,0.616
+component_driven,131,0.1283,-0.0233,0.031
